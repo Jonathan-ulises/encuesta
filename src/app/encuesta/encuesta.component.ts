@@ -4,6 +4,9 @@ import { EstadosMunicipiosService } from '../services/estados-municipios.service
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Choice } from '../model/choice.interface';
 import { ValidateChecks, ValidateUrl } from '../validators/check.validator';
+import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
+import { RespuestasService } from '../services/respuestas.service';
 
 // const validateCheck = (arr: FormArray) => {
 //   return arr.controls.some(x => x.value == false) ? {invalidCheck: true} : null;
@@ -112,7 +115,7 @@ export class EncuestaComponent implements OnInit {
 
   encuestaForm = new FormGroup({
     preg_1: new FormControl(null, [Validators.required]),
-    preg_2: new FormControl({value: '', disabled: true}, [Validators.required]),
+    preg_2: new FormControl({ value: '', disabled: true }, [Validators.required]),
     preg_3: new FormControl(null, [Validators.required]),
     preg_4: new FormControl(null, [Validators.required]),
     preg_5: new FormControl(null, [Validators.required]),
@@ -144,7 +147,9 @@ export class EncuestaComponent implements OnInit {
   })
 
   constructor(
-    private estadoMunicipioService: EstadosMunicipiosService
+    private estadoMunicipioService: EstadosMunicipiosService,
+    private router: Router,
+    private respuestasService: RespuestasService
   ) {
     this.addCheckBoxToForm(this.preg_13Choices, this.preg_13FormArray);
     this.addCheckBoxToForm(this.preg_15_16_17Choice, this.preg_15FormArray);
@@ -192,8 +197,8 @@ export class EncuestaComponent implements OnInit {
     this.encuestaForm.controls['preg_2']?.enable();
   }
 
-  
-  
+
+
   enviarRespuestas(): void {
     //this.validarFormulario();
     if (this.validarFormulario()) {
@@ -204,44 +209,79 @@ export class EncuestaComponent implements OnInit {
       const selectedPreg17 = this.encuestaForm.value.preg_17?.map((checked, i) => checked ? this.preg_15_16_17Choice[i].value : null).filter(v => v !== null);
       const selectedPreg18 = this.encuestaForm.value.preg_18?.map((checked, i) => checked ? this.preg_18Choice[i].value : null).filter(v => v !== null);
       const selectedPreg28 = this.encuestaForm.value.preg_28?.map((checked, i) => checked ? this.preg_28Choice[i].value : null).filter(v => v !== null);
-      
+
       const body = {
-        "1": this.encuestaForm.controls.preg_1.value,
-        "2": this.encuestaForm.controls.preg_2.value,
-        "3": this.encuestaForm.controls.preg_3.value,
-        "4": this.encuestaForm.controls.preg_4.value,
-        "5": this.encuestaForm.controls.preg_5.value,
-        "6": this.encuestaForm.controls.preg_6.value,
-        "7": this.encuestaForm.controls.preg_7.value,
-        "8": this.encuestaForm.controls.preg_8.value,
-        "9": this.encuestaForm.controls.preg_9.value,
-        "10": this.encuestaForm.controls.preg_10.value,
-        "11": this.encuestaForm.controls.preg_11.value,
-        "12": this.encuestaForm.controls.preg_12.value,
-        "13": selectedPreg13,
-        "14": this.encuestaForm.controls.preg_9.value,
-        "15": selectedPreg15,
-        "16": selectedPreg16,
-        "17": selectedPreg17,
-        "18": selectedPreg18,
-        "19": this.encuestaForm.controls.preg_19.value,
-        "20": this.encuestaForm.controls.preg_20.value,
-        "21": this.encuestaForm.controls.preg_21.value,
-        "22": this.encuestaForm.controls.preg_22.value,
-        "23": this.encuestaForm.controls.preg_23.value,
-        "24": this.encuestaForm.controls.preg_24.value,
-        "25": this.encuestaForm.controls.preg_25.value,
-        "26": this.encuestaForm.controls.preg_26.value,
-        "27": this.encuestaForm.controls.preg_27.value,
-        "28": selectedPreg28,
-        "29": this.encuestaForm.controls.preg_29.value,
-        "30": this.encuestaForm.controls.preg_30.value,
+        "respuestas": {
+          "1": this.encuestaForm.controls.preg_1.value,
+          "2": this.encuestaForm.controls.preg_2.value,
+          "3": this.encuestaForm.controls.preg_3.value,
+          "4": this.encuestaForm.controls.preg_4.value,
+          "5": this.encuestaForm.controls.preg_5.value,
+          "6": this.encuestaForm.controls.preg_6.value,
+          "7": this.encuestaForm.controls.preg_7.value,
+          "8": this.encuestaForm.controls.preg_8.value,
+          "9": this.encuestaForm.controls.preg_9.value,
+          "10": this.encuestaForm.controls.preg_10.value,
+          "11": this.encuestaForm.controls.preg_11.value,
+          "12": this.encuestaForm.controls.preg_12.value,
+          "13": selectedPreg13,
+          "14": this.encuestaForm.controls.preg_9.value,
+          "15": selectedPreg15,
+          "16": selectedPreg16,
+          "17": selectedPreg17,
+          "18": selectedPreg18,
+          "19": this.encuestaForm.controls.preg_19.value,
+          "20": this.encuestaForm.controls.preg_20.value,
+          "21": this.encuestaForm.controls.preg_21.value,
+          "22": this.encuestaForm.controls.preg_22.value,
+          "23": this.encuestaForm.controls.preg_23.value,
+          "24": this.encuestaForm.controls.preg_24.value,
+          "25": this.encuestaForm.controls.preg_25.value,
+          "26": this.encuestaForm.controls.preg_26.value,
+          "27": this.encuestaForm.controls.preg_27.value,
+          "28": selectedPreg28,
+          "29": this.encuestaForm.controls.preg_29.value,
+          "30": this.encuestaForm.controls.preg_30.value
+        }
       }
-      
+
       console.log('BODY => ', body)
       console.log(selectedPreg13);
-    } else {
+
+      this.respuestasService.saveRespuestas(body).subscribe((res: any) => {
+        if(res.status == 'done') {
+          Swal.fire({
+            title: 'Encuesta Terminada',
+            text: 'Gracias por temrinar nuestra encuesta',
+            icon: 'success',
+            confirmButtonText: 'Terminar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.router.navigateByUrl('');
+            }
+          })
+        } else {
+          Swal.fire(
+            '',
+            'A ocurrido un error',
+            'error'
+          )
+        }
+      }, (err) => {
+        Swal.fire(
+          '',
+          'A ocurrido un error',
+          'error'
+        )
+      })
+
       
+    } else {
+      Swal.fire(
+        '',
+        'Faltan preguntas por contestar',
+        'error'
+      )
     }
   }
 
