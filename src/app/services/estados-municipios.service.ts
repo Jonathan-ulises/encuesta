@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Estado } from '../model/estado.interfaces';
+import { Estado } from '../model/estado.interface';
 
 @Injectable({
   providedIn: 'root'

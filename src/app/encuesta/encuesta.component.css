@@ -2,3 +2,10 @@
     background-color: #00CC99;
     color: white; 
 }
+
+.alert {
+    --bs-alert-padding-x: 0.5rem;
+    --bs-alert-padding-y: 0.5rem;
+
+    font-size: 0.8rem;
+}
