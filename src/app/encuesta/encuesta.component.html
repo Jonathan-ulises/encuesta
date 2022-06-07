@@ -1,0 +1,504 @@
+<div class="container-fluid">
+    <div class="row justify-content-center mt-5 mb-5">
+        <div class="col-8 shadow p-3" style="background-color: #F4F4F4 ">
+            <form [formGroup]="encuestaForm" (ngSubmit)="enviarRespuestas()">
+                <h3>Contesta todas las preguntas</h3>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">1. Seleccione el estado donde vives</label>
+                    <select id="q_1" class="form-select" aria-label="Default select example" 
+                        formControlName="preg_1" (change)="cargarMunicipios($event)">
+                        <option selected>Seleccione una opcion</option>
+                        <option *ngFor="let est of lstEstados" value="{{est.nombre}}">{{est.nombre}}</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">2. Seleccione el municipio donde vives</label>
+                    <select id="q_1" class="form-select" aria-label="Default select example"
+                        formControlName="preg_2">
+                        <option selected>Seleccione una opcion</option>
+                        <option *ngFor="let mun of lstMunicipios" value="{{mun}}">{{mun}}</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="ctrFechaNacimiento" class="form-label">3. Fecha de Nacimiento</label>
+                    <input formControlName="preg_3" type="date" class="form-control" id="ctrFechaNacimiento">
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">4. Sexo</label>
+                    <div class="form-check">
+                        <input formControlName="preg_4" class="form-check-input" type="radio" name="preg_4" id="preg_4" value="MUJER">
+                        <label class="form-check-label" for="exampleRadios1">
+                            Femenino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_4" class="form-check-input" type="radio" name="preg_4" id="preg_4" value="HOMBRE">
+                        <label class="form-check-label" for="exampleRadios2">
+                            Masculino
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">5. Carrera</label>
+                    <select formControlName="preg_5" id="q_1" class="form-select" aria-label="Seleccione una opcion">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="Ing. en Entornos Virtuales y Negocios Digitales">Ingeniería Entornos Virtuales y Negocios Digitales</option>
+                        <option value="Ing. en Desarrollo y Gestión de Software">Ingeniería en Desarrollo y Gestión de Software</option>
+                        <option value="Ing. en Redes Inteligentes y Ciberseguridad">Ingeniería en Redes Inteligentes y Ciberseguridad</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">6. Cuatrimestre en el que te encontrabas cuando inicio la pandemia</label>
+                    <select formControlName="preg_6" id="q_1" class="form-select" aria-label="Seleccione una opcion">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="primero">1</option>
+                        <option value="segundo">2</option>
+                        <option value="tercero">3</option>
+                        <option value="cuarto">4</option>
+                        <option value="quinto">5</option>
+                        <option value="sexto">6</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">7. Cuatrimestre Actual</label>
+                    <select formControlName="preg_7" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="septimo">7</option>
+                        <option value="octavo">8</option>
+                        <option value="noveno">9</option>
+                        <option value="decimo">10</option>
+                        <option value="onceavo">11</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        8. Durante el confinamiento ¿disponías de un espacio específico de trabajo
+                        en tu casa (cuarto de trabajo, estancia o despacho)?
+                    </label>
+                    <select formControlName="preg_8" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                        <option value="era compartido">Era compartido</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        9. ¿En tu casa contaban con internet al inicio de la pandemia?
+                    </label>
+                    <select formControlName="preg_9" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        10. ¿Cuánto se paga por el internet que usas?
+                    </label>
+                    <select formControlName="preg_10" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="50 a100 pesos">50 a100 pesos</option>
+                        <option value="101 a 300 pesos">101 a 300 pesos</option>
+                        <option value="301 a 500 pesos">301 a 500 pesos</option>
+                        <option value="501 o más">501 o más</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        11. ¿Qué tipo de dispositivo utilizabas con mayor frecuencia para
+                        tus clases en línea?
+                    </label>
+                    <select formControlName="preg_11" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="computadora">Computadora</option>
+                        <option value="tablet">Tablet</option>
+                        <option value="celular">Celular</option>
+                        <option value="televisión">Televisión</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        12. ¿Tuviste la necesidad de comprar algún dispositivo para
+                        poder tomar las clases en línea?
+                    </label>
+                    <select formControlName="preg_12" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        13. ¿En cuál de los siguientes medios entregabas trabajos,
+                        actividades escolares? (Selección Múltiple)
+                    </label>
+                    <div class="form-check">
+                        <input formControlName="preg_13" class="form-check-input" type="checkbox" 
+                                value="Via correo electronico" id="defaultCheck1" (change)="onCheckChange($event)">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Via correo electronico
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_13" class="form-check-input" type="checkbox" value="Plataformas como classroom, teams, etc" id="defaultCheck2">
+                        <label class="form-check-label" for="defaultCheck2">
+                            Plataformas como classroom, teams, etc
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_13" class="form-check-input" type="checkbox" value="Grupos de WhatsApp" id="defaultCheck3">
+                        <label class="form-check-label" for="defaultCheck3">
+                            Grupos de WhatsApp
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_13" class="form-check-input" type="checkbox" value="Ninguno" id="defaultCheck4">
+                        <label class="form-check-label" for="defaultCheck4">
+                            Ninguno
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        14. ¿Qué tan complicado fue el manejar las plataformas?
+                    </label>
+                    <select formControlName="preg_14" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="mucho">Mucho</option>
+                        <option value="regular">Regular</option>
+                        <option value="poco">Poco</option>
+                        <option value="muy poco">Muy poco</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        15. ¿Qué sistemas on-line utilizaban los profesores para evaluarte?
+                        (Selección Múltiple)
+                    </label>
+                    <div class="form-check">
+                        <input formControlName="preg_15" class="form-check-input" type="checkbox" value="Examen oral" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Examen oral
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_15" class="form-check-input" type="checkbox" value="Examen en línea" id="defaultCheck2">
+                        <label class="form-check-label" for="defaultCheck2">
+                            Examen en línea
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_15" class="form-check-input" type="checkbox" value="Prueba escrita abierta" id="defaultCheck3">
+                        <label class="form-check-label" for="defaultCheck3">
+                            Prueba escrita abierta
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_15" class="form-check-input" type="checkbox" value="Elaboración de trabajos, proyectos, casos" id="defaultCheck4">
+                        <label class="form-check-label" for="defaultCheck4">
+                            Elaboración de trabajos, proyectos, casos
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        16. Señala los dos sistemas de evaluación
+                        on-line que MEJOR valoras (Selección Múltiple)
+                    </label>
+                    <div class="form-check">
+                        <input formControlName="preg_16" class="form-check-input" type="checkbox" value="Examen oral" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Examen oral
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_16" class="form-check-input" type="checkbox" value="Examen en línea" id="defaultCheck2">
+                        <label class="form-check-label" for="defaultCheck2">
+                            Examen en línea
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_16" class="form-check-input" type="checkbox" value="Prueba escrita abierta" id="defaultCheck3">
+                        <label class="form-check-label" for="defaultCheck3">
+                            Prueba escrita abierta
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_16" class="form-check-input" type="checkbox" value="Elaboración de trabajos, proyectos, casos" id="defaultCheck4">
+                        <label class="form-check-label" for="defaultCheck4">
+                            Elaboración de trabajos, proyectos, casos
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        17. Señala los dos sistemas de evaluación on-line que
+                        PEOR valoras (Selección Múltiple)
+                    </label>
+                    <div class="form-check">
+                        <input formControlName="preg_17" class="form-check-input" type="checkbox" value="Examen oral" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Examen oral
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_17" class="form-check-input" type="checkbox" value="Examen en línea" id="defaultCheck2">
+                        <label class="form-check-label" for="defaultCheck2">
+                            Examen en línea
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_17" class="form-check-input" type="checkbox" value="Prueba escrita abierta" id="defaultCheck3">
+                        <label class="form-check-label" for="defaultCheck3">
+                            Prueba escrita abierta
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_17" class="form-check-input" type="checkbox" value="Elaboración de trabajos, proyectos, casos" id="defaultCheck4">
+                        <label class="form-check-label" for="defaultCheck4">
+                            Elaboración de trabajos, proyectos, casos
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        18. ¿Qué dificultades llegaste a tener durante tus
+                        evaluaciones on-line? (Selección Múltiple)
+                    </label>
+                    <div class="form-check">
+                        <input formControlName="preg_18" class="form-check-input" type="checkbox" value="Problemas de conexión" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Problemas de conexión
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_18" class="form-check-input" type="checkbox" value="Dificultad para preguntar dudas durante el examen" id="defaultCheck2">
+                        <label class="form-check-label" for="defaultCheck2">
+                            Dificultad para preguntar dudas durante el examen
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_18" class="form-check-input" type="checkbox" value="Nervios adicionales por la incertidumbre ante la evaluación online" id="defaultCheck3">
+                        <label class="form-check-label" for="defaultCheck3">
+                            Nervios adicionales por la incertidumbre ante la evaluación online
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_18" class="form-check-input" type="checkbox" value="Excesiva carga de trabajo" id="defaultCheck4">
+                        <label class="form-check-label" for="defaultCheck4">
+                            Excesiva carga de trabajo
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_18" class="form-check-input" type="checkbox" value="Exámenes escritos a resolver en tiempo reducido" id="defaultCheck5">
+                        <label class="form-check-label" for="defaultCheck5">
+                            Exámenes escritos a resolver en tiempo reducido
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_18" class="form-check-input" type="checkbox" value="Coincidencia de entregar de trabajos de distintas asignaturas" id="defaultCheck6">
+                        <label class="form-check-label" for="defaultCheck6">
+                            Coincidencia de entregar de trabajos de distintas asignaturas
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        19. ¿Qué tan cómodo/a te sentías con las clases virtuales?
+                    </label>
+                    <select formControlName="preg_19" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="mucho">Mucho</option>
+                        <option value="regular">Regular</option>
+                        <option value="poco">Poco</option>
+                        <option value="muy poco">Muy poco</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        20. ¿Qué tan fácil era poder aclarar una duda con algún maestro?
+                    </label>
+                    <select formControlName="preg_20" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="mucho">Mucho</option>
+                        <option value="regular">Regular</option>
+                        <option value="poco">Poco</option>
+                        <option value="muy poco">Muy poco</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        21. ¿Qué tan fácil fue la comprensión de los temas?
+                    </label>
+                    <select formControlName="preg_21" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="mucho">Mucho</option>
+                        <option value="regular">Regular</option>
+                        <option value="poco">Poco</option>
+                        <option value="muy poco">Muy poco</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        22. ¿Cuánto tiempo le dedicabas, de lunes a viernes, a las
+                        actividades de aprendizaje (clases, hacer tareas, estudiar, lectura)?
+                    </label>
+                    <select formControlName="preg_22" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="De 3 a 4 horas">De 3 a 4 horas</option>
+                        <option value="De 5 a 6 horas">De 5 a 6 horas</option>
+                        <option value="De 6 a 7 horas">De 6 a 7 horas</option>
+                        <option value="Más de 7 horas">Más de 7 horas</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        23. Durante el tiempo de las clases a distancia, crees que aprendiste…
+                    </label>
+                    <select formControlName="preg_23" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="Más que si hubiera ido a clase">Más que si hubiera ido a clase</option>
+                        <option value="Igual que si hubiera ido a clase">Igual que si hubiera ido a clase</option>
+                        <option value="Menos que si hubiera ido a clase">Menos que si hubiera ido a clase</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        24. ¿Extrañabas convivir con tus maestros?
+                    </label>
+                    <select formControlName="preg_24" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="mucho">Mucho</option>
+                        <option value="regular">Regular</option>
+                        <option value="poco">Poco</option>
+                        <option value="muy poco">Muy poco</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        25. ¿Extrañabas convivir con tus compañeros?
+                    </label>
+                    <select formControlName="preg_25" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="mucho">Mucho</option>
+                        <option value="regular">Regular</option>
+                        <option value="poco">Poco</option>
+                        <option value="muy poco">Muy poco</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        26. ¿Extrañabas asistir a la universidad?
+                    </label>
+                    <select formControlName="preg_26" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="mucho">Mucho</option>
+                        <option value="regular">Regular</option>
+                        <option value="poco">Poco</option>
+                        <option value="muy poco">Muy poco</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        27. ¿En algún momento te llegaste a sentir agredido
+                        en clases virtuales por tus compañeros o compañeras?
+                    </label>
+                    <select formControlName="preg_27" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="mucho">Mucho</option>
+                        <option value="regular">Regular</option>
+                        <option value="poco">Poco</option>
+                        <option value="muy poco">Muy poco</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        28. Durante el confinamiento, qué actividades tuviste que
+                        compatibilizar (Respuesta Múltiple)
+                    </label>
+                    <div class="form-check">
+                        <input formControlName="preg_28" class="form-check-input" type="checkbox" value="Estudio" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Estudio
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_28" class="form-check-input" type="checkbox" value="Trabajo" id="defaultCheck2">
+                        <label class="form-check-label" for="defaultCheck2">
+                            Trabajo
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_28" class="form-check-input" type="checkbox" value="Apoyo en casa" id="defaultCheck3">
+                        <label class="form-check-label" for="defaultCheck3">
+                            Apoyo en casa
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_28" class="form-check-input" type="checkbox" value="Cuidado de menores/mayores" id="defaultCheck4">
+                        <label class="form-check-label" for="defaultCheck4">
+                            Cuidado de menores/mayores
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_28" class="form-check-input" type="checkbox" value="Otros" id="defaultCheck5">
+                        <label class="form-check-label" for="defaultCheck5">
+                            Otros
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <label for="q_1" class="form-label">
+                        29. ¿Preferirías continuar tus estudios en modalidad virtual?
+                    </label>
+                    <select formControlName="preg_29" id="q_1" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="mt-3">
+                    <label for="ctrEmail" class="form-label">30. Qué aspectos positivos y negativos destacarías de 
+                    tu trabajo on line durante el confinamiento.</label>
+                    <textarea formControlName="preg_30" class="form-control" id="ctrEmail" rows="3"></textarea>
+                </div>
+
+                <div class="d-grid mt-5">
+                    <button type="submit" class="btn btn-green">Enviar Respuestas</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
