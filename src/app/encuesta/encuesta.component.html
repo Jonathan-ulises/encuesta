@@ -12,7 +12,7 @@
                         <option *ngFor="let est of lstEstados" value="{{est.nombre}}">{{est.nombre}}</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_1.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_1.errors && (encuestaForm.controls.preg_1.dirty || encuestaForm.controls.preg_1.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -24,7 +24,7 @@
                         <option *ngFor="let mun of lstMunicipios" value="{{mun}}">{{mun}}</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_2.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_2.errors && (encuestaForm.controls.preg_2.dirty || encuestaForm.controls.preg_2.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -32,7 +32,7 @@
                     <label for="ctrFechaNacimiento" class="form-label">3. Fecha de Nacimiento <span class="text-danger">*</span></label>
                     <input formControlName="preg_3" type="date" class="form-control" id="ctrFechaNacimiento">
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_3.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_3.errors && (encuestaForm.controls.preg_3.dirty || encuestaForm.controls.preg_3.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -51,7 +51,7 @@
                         </label>
                     </div>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_4.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_4.errors && (encuestaForm.controls.preg_4.dirty || encuestaForm.controls.preg_4.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -64,7 +64,7 @@
                         <option value="Ing. en Redes Inteligentes y Ciberseguridad">Ingeniería en Redes Inteligentes y Ciberseguridad</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_5.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_5.errors && (encuestaForm.controls.preg_5.dirty || encuestaForm.controls.preg_5.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -80,7 +80,7 @@
                         <option value="sexto">6</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_6.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_6.errors && (encuestaForm.controls.preg_6.dirty || encuestaForm.controls.preg_6.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -95,7 +95,7 @@
                         <option value="onceavo">11</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_7.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_7.errors && (encuestaForm.controls.preg_7.dirty || encuestaForm.controls.preg_7.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -111,7 +111,7 @@
                         <option value="era compartido">Era compartido</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_8.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_8.errors && (encuestaForm.controls.preg_8.dirty || encuestaForm.controls.preg_8.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -125,7 +125,7 @@
                         <option value="no">No</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_9.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_9.errors && (encuestaForm.controls.preg_9.dirty || encuestaForm.controls.preg_9.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -141,7 +141,7 @@
                         <option value="501 o más">501 o más</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_10.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_10.errors && (encuestaForm.controls.preg_10.dirty || encuestaForm.controls.preg_10.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -158,7 +158,7 @@
                         <option value="televisión">Televisión</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_11.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_11.errors && (encuestaForm.controls.preg_11.dirty || encuestaForm.controls.preg_11.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -173,7 +173,7 @@
                         <option value="no">No</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_12.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_12.errors && (encuestaForm.controls.preg_12.dirty || encuestaForm.controls.preg_12.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -191,7 +191,7 @@
                         </label>
                     </div>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_13.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_13.errors && (encuestaForm.controls.preg_13.dirty || encuestaForm.controls.preg_13.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -207,7 +207,7 @@
                         <option value="muy poco">Muy poco</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_14.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_14.errors && (encuestaForm.controls.preg_14.dirty || encuestaForm.controls.preg_14.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -225,7 +225,7 @@
                         </label>
                     </div>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_15.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_15.errors && (encuestaForm.controls.preg_15.dirty || encuestaForm.controls.preg_15.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -243,7 +243,7 @@
                         </label>
                     </div>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_16.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_16.errors && (encuestaForm.controls.preg_16.dirty || encuestaForm.controls.preg_16.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -261,7 +261,7 @@
                         </label>
                     </div>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_17.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_17.errors && (encuestaForm.controls.preg_17.dirty || encuestaForm.controls.preg_17.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -279,7 +279,7 @@
                         </label>
                     </div>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_18.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_18.errors && (encuestaForm.controls.preg_18.dirty || encuestaForm.controls.preg_18.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -295,7 +295,7 @@
                         <option value="muy poco">Muy poco</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_19.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_19.errors && (encuestaForm.controls.preg_19.dirty || encuestaForm.controls.preg_19.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -311,7 +311,7 @@
                         <option value="muy poco">Muy poco</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_20.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_20.errors && (encuestaForm.controls.preg_20.dirty || encuestaForm.controls.preg_20.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -327,7 +327,7 @@
                         <option value="muy poco">Muy poco</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_21.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_21.errors && (encuestaForm.controls.preg_21.dirty || encuestaForm.controls.preg_21.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -344,7 +344,7 @@
                         <option value="Más de 7 horas">Más de 7 horas</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_22.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_22.errors && (encuestaForm.controls.preg_22.dirty || encuestaForm.controls.preg_22.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -359,7 +359,7 @@
                         <option value="Menos que si hubiera ido a clase">Menos que si hubiera ido a clase</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_23.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_23.errors && (encuestaForm.controls.preg_23.dirty || encuestaForm.controls.preg_23.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -375,7 +375,7 @@
                         <option value="muy poco">Muy poco</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_24.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_24.errors && (encuestaForm.controls.preg_24.dirty || encuestaForm.controls.preg_24.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -391,7 +391,7 @@
                         <option value="muy poco">Muy poco</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_25.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_25.errors && (encuestaForm.controls.preg_25.dirty || encuestaForm.controls.preg_25.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -407,7 +407,7 @@
                         <option value="muy poco">Muy poco</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_26.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_26.errors && (encuestaForm.controls.preg_26.dirty || encuestaForm.controls.preg_26.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -424,7 +424,7 @@
                         <option value="muy poco">Muy poco</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_27.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_27.errors && (encuestaForm.controls.preg_27.dirty || encuestaForm.controls.preg_27.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -442,7 +442,7 @@
                         </label>
                     </div>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_28.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_28.errors && (encuestaForm.controls.preg_28.dirty || encuestaForm.controls.preg_28.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
@@ -456,7 +456,7 @@
                         <option value="no">No</option>
                     </select>
                 </div>
-                <div *ngIf="encuestaForm.controls.preg_29.errors && (encuestaForm.dirty || encuestaForm.touched)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="encuestaForm.controls.preg_29.errors && (encuestaForm.controls.preg_29.dirty || encuestaForm.controls.preg_29.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
