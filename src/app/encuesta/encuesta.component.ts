@@ -201,7 +201,8 @@ export class EncuestaComponent implements OnInit {
 
   enviarRespuestas(): void {
     //this.validarFormulario();
-    if (this.validarFormulario()) {
+    // TODO: CAMBIAR REMOVIENDO LA NEGACION
+    if (!this.validarFormulario()) {
       console.log('FORM => ', this.encuestaForm)
       const selectedPreg13 = this.encuestaForm.value.preg_13?.map((checked, i) => checked ? this.preg_13Choices[i].value : null).filter(v => v !== null);
       const selectedPreg15 = this.encuestaForm.value.preg_15?.map((checked, i) => checked ? this.preg_15_16_17Choice[i].value : null).filter(v => v !== null);
@@ -248,7 +249,7 @@ export class EncuestaComponent implements OnInit {
       console.log('BODY => ', body)
       console.log(selectedPreg13);
 
-      this.respuestasService.saveRespuestas(body).subscribe((res: any) => {
+      /* this.respuestasService.saveRespuestas(body).subscribe((res: any) => {
         if(res.status == 'done') {
           Swal.fire({
             title: 'Encuesta Terminada',
@@ -273,7 +274,7 @@ export class EncuestaComponent implements OnInit {
           'A ocurrido un error',
           'error'
         )
-      })
+      }) */
 
       
     } else {

@@ -55,30 +55,59 @@
                     Campo obligatorio
                 </div>
 
+
                 <div class="mt-3">
                     <label for="q_1" class="form-label">5. Carrera <span class="text-danger">*</span></label>
-                    <select formControlName="preg_5" id="q_1" class="form-select" aria-label="Seleccione una opcion">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="Ing. en Entornos Virtuales y Negocios Digitales">Ingeniería Entornos Virtuales y Negocios Digitales</option>
-                        <option value="Ing. en Desarrollo y Gestión de Software">Ingeniería en Desarrollo y Gestión de Software</option>
-                        <option value="Ing. en Redes Inteligentes y Ciberseguridad">Ingeniería en Redes Inteligentes y Ciberseguridad</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_5" type="radio" name="preg_5" id="preg_5_1" class="form-check-input" value="Ing. en Entornos Virtuales y Negocios Digitales">
+                        <label for="preg_5_1" class="form-check-label">
+                            Ingeniería Entornos Virtuales y Negocios Digitales
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_5" type="radio" name="preg_5" id="preg_5_2" class="form-check-input" value="Ing. en Desarrollo y Gestión de Software">
+                        <label for="preg_5_2" class="form-check-label">
+                            Ingeniería en Desarrollo y Gestión de Software
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_5" type="radio" name="preg_5" id="preg_5_3" class="form-check-input" value="Ing. en Redes Inteligentes y Ciberseguridad">
+                        <label for="preg_5_3" class="form-check-label">
+                            Ingeniería en Redes Inteligentes y Ciberseguridad
+                        </label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_5.errors && (encuestaForm.controls.preg_5.dirty || encuestaForm.controls.preg_5.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
                 <div class="mt-3">
                     <label for="q_1" class="form-label">6. Cuatrimestre en el que te encontrabas cuando inicio la pandemia <span class="text-danger">*</span></label>
-                    <select formControlName="preg_6" id="q_1" class="form-select" aria-label="Seleccione una opcion">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="primero">1</option>
-                        <option value="segundo">2</option>
-                        <option value="tercero">3</option>
-                        <option value="cuarto">4</option>
-                        <option value="quinto">5</option>
-                        <option value="sexto">6</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_1" class="form-check-input" value="primero">
+                        <label for="preg_6_1" class="form-check-label">1</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_2" class="form-check-input" value="segundo">
+                        <label for="preg_6_2" class="form-check-label">2</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_3" class="form-check-input" value="tercero">
+                        <label for="preg_6_3" class="form-check-label">3</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_4" class="form-check-input" value="cuarto">
+                        <label for="preg_6_4" class="form-check-label">4</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_5" class="form-check-input" value="quinto">
+                        <label for="preg_6_5" class="form-check-label">5</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_6" class="form-check-input" value="sexto">
+                        <label for="preg_6_6" class="form-check-label">6</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_6.errors && (encuestaForm.controls.preg_6.dirty || encuestaForm.controls.preg_6.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
@@ -86,30 +115,49 @@
 
                 <div class="mt-3">
                     <label for="q_1" class="form-label">7. Cuatrimestre Actual <span class="text-danger">*</span></label>
-                    <select formControlName="preg_7" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="septimo">7</option>
-                        <option value="octavo">8</option>
-                        <option value="noveno">9</option>
-                        <option value="decimo">10</option>
-                        <option value="onceavo">11</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_7" type="radio" name="preg_7" id="preg_7_1" class="form-check-input" value="septimo">
+                        <label for="preg_7_1" class="form-check-label">7</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_7" type="radio" name="preg_7" id="preg_7_2" class="form-check-input" value="octavo">
+                        <label for="preg_7_2" class="form-check-label">8</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_7" type="radio" name="preg_7" id="preg_7_3" class="form-check-input" value="noveno">
+                        <label for="preg_7_3" class="form-check-label">9</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_7" type="radio" name="preg_7" id="preg_7_4" class="form-check-input" value="decimo">
+                        <label for="preg_7_4" class="form-check-label">10</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_7" type="radio" name="preg_7" id="preg_7_5" class="form-check-input" value="onceavo">
+                        <label for="preg_7_5" class="form-check-label">11</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_7.errors && (encuestaForm.controls.preg_7.dirty || encuestaForm.controls.preg_7.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
+
 
                 <div class="mt-3">
                     <label for="q_1" class="form-label">
                         8. Durante el confinamiento ¿disponías de un espacio específico de trabajo
                         en tu casa (cuarto de trabajo, estancia o despacho)? <span class="text-danger">*</span>
                     </label>
-                    <select formControlName="preg_8" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="si">Si</option>
-                        <option value="no">No</option>
-                        <option value="era compartido">Era compartido</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_8" type="radio" name="preg_8" id="preg_8_1" class="form-check-input" value="si">
+                        <label for="preg_8_1" class="form-check-label">Si</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_8" type="radio" name="preg_8" id="preg_8_2" class="form-check-input" value="no">
+                        <label for="preg_8_2" class="form-check-label">No</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_8" type="radio" name="preg_8" id="preg_8_3" class="form-check-input" value="era compartido">
+                        <label for="preg_8_3" class="form-check-label">Era compartido</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_8.errors && (encuestaForm.controls.preg_8.dirty || encuestaForm.controls.preg_8.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
@@ -119,63 +167,91 @@
                     <label for="q_1" class="form-label">
                         9. ¿En tu casa contaban con internet al inicio de la pandemia? <span class="text-danger">*</span>
                     </label>
-                    <select formControlName="preg_9" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="si">Si</option>
-                        <option value="no">No</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_9" type="radio" name="preg_9" id="preg_9_1" class="form-check-input" value="si">
+                        <label for="preg_9_1" class="form-check-label">Si</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_9" type="radio" name="preg_9" id="preg_9_2" class="form-check-input" value="no">
+                        <label for="preg_9_2" class="form-check-label">No</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_9.errors && (encuestaForm.controls.preg_9.dirty || encuestaForm.controls.preg_9.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
                 <div class="mt-3">
                     <label for="q_1" class="form-label">
                         10. ¿Cuánto se paga por el internet que usas? <span class="text-danger">*</span>
                     </label>
-                    <select formControlName="preg_10" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="50 a100 pesos">50 a100 pesos</option>
-                        <option value="101 a 300 pesos">101 a 300 pesos</option>
-                        <option value="301 a 500 pesos">301 a 500 pesos</option>
-                        <option value="501 o más">501 o más</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_10" type="radio" name="preg_10" id="preg_10_1" class="form-check-input" value="50 a100 pesos">
+                        <label for="preg_10_1" class="form-check-label">50 a100 pesos</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_10" type="radio" name="preg_10" id="preg_10_2" class="form-check-input" value="101 a 300 pesos">
+                        <label for="preg_10_2" class="form-check-label">101 a 300 pesos</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_10" type="radio" name="preg_10" id="preg_10_3" class="form-check-input" value="301 a 500 pesos">
+                        <label for="preg_10_3" class="form-check-label">301 a 500 pesos</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_10" type="radio" name="preg_10" id="preg_10_4" class="form-check-input" value="501 o más">
+                        <label for="preg_10_4" class="form-check-label">501 o más</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_10.errors && (encuestaForm.controls.preg_10.dirty || encuestaForm.controls.preg_10.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
+
 
                 <div class="mt-3">
                     <label for="q_1" class="form-label">
                         11. ¿Qué tipo de dispositivo utilizabas con mayor frecuencia para
                         tus clases en línea? <span class="text-danger">*</span>
                     </label>
-                    <select formControlName="preg_11" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="computadora">Computadora</option>
-                        <option value="tablet">Tablet</option>
-                        <option value="celular">Celular</option>
-                        <option value="televisión">Televisión</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_11" type="radio" name="preg_11" id="preg_11_1" class="form-check-input" value="computadora">
+                        <label for="preg_11_1" class="form-check-label">Computadora</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_11" type="radio" name="preg_11" id="preg_11_2" class="form-check-input" value="tablet">
+                        <label for="preg_11_2" class="form-check-label">Tablet</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_11" type="radio" name="preg_11" id="preg_11_3" class="form-check-input" value="celular">
+                        <label for="preg_11_3" class="form-check-label">Celular</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_11" type="radio" name="preg_11" id="preg_11_4" class="form-check-input" value="televisión">
+                        <label for="preg_11_4" class="form-check-label">Televisión</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_11.errors && (encuestaForm.controls.preg_11.dirty || encuestaForm.controls.preg_11.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
+
 
                 <div class="mt-3">
                     <label for="q_1" class="form-label">
                         12. ¿Tuviste la necesidad de comprar algún dispositivo para
                         poder tomar las clases en línea? <span class="text-danger">*</span>
                     </label>
-                    <select formControlName="preg_12" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="si">Si</option>
-                        <option value="no">No</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_12" type="radio" name="preg_12" id="preg_12_1" class="form-check-input" value="si">
+                        <label for="preg_12_1" class="form-check-label">Si</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_12" type="radio" name="preg_12" id="preg_12_2" class="form-check-input" value="no">
+                        <label for="preg_12_2" class="form-check-label">No</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_12.errors && (encuestaForm.controls.preg_12.dirty || encuestaForm.controls.preg_12.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
+
 
                 <div class="mt-3">
                     <label for="q_1" class="form-label">
@@ -199,13 +275,22 @@
                     <label for="q_1" class="form-label">
                         14. ¿Qué tan complicado fue el manejar las plataformas? <span class="text-danger">*</span>
                     </label>
-                    <select formControlName="preg_14" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="mucho">Mucho</option>
-                        <option value="regular">Regular</option>
-                        <option value="poco">Poco</option>
-                        <option value="muy poco">Muy poco</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_14" type="radio" name="preg_14" id="preg_14_1" class="form-check-input" value="mucho">
+                        <label for="preg_14_1" class="form-check-label">Mucho</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_14" type="radio" name="preg_14" id="preg_14_2" class="form-check-input" value="regular">
+                        <label for="preg_14_2" class="form-check-label">Regular</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_14" type="radio" name="preg_14" id="preg_14_3" class="form-check-input" value="poco">
+                        <label for="preg_14_3" class="form-check-label">Poco</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_14" type="radio" name="preg_14" id="preg_14_4" class="form-check-input" value="muy poco">
+                        <label for="preg_14_4" class="form-check-label">Muy poco</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_14.errors && (encuestaForm.controls.preg_14.dirty || encuestaForm.controls.preg_14.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
@@ -283,49 +368,79 @@
                     Campo obligatorio
                 </div>
 
+
                 <div class="mt-3">
                     <label for="q_1" class="form-label">
                         19. ¿Qué tan cómodo/a te sentías con las clases virtuales? <span class="text-danger">*</span>
                     </label>
-                    <select formControlName="preg_19" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="mucho">Mucho</option>
-                        <option value="regular">Regular</option>
-                        <option value="poco">Poco</option>
-                        <option value="muy poco">Muy poco</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_19" type="radio" name="preg_19" id="preg_19_1" class="form-check-input" value="mucho">
+                        <label for="preg_19_1" class="form-check-label">Mucho</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_19" type="radio" name="preg_19" id="preg_19_2" class="form-check-input" value="regular">
+                        <label for="preg_19_2" class="form-check-label">Regular</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_19" type="radio" name="preg_19" id="preg_19_3" class="form-check-input" value="poco">
+                        <label for="preg_19_3" class="form-check-label">Poco</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_19" type="radio" name="preg_19" id="preg_19_4" class="form-check-input" value="muy poco">
+                        <label for="preg_19_4" class="form-check-label">Muy poco</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_19.errors && (encuestaForm.controls.preg_19.dirty || encuestaForm.controls.preg_19.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
                 <div class="mt-3">
                     <label for="q_1" class="form-label">
                         20. ¿Qué tan fácil era poder aclarar una duda con algún maestro? <span class="text-danger">*</span>
                     </label>
-                    <select formControlName="preg_20" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="mucho">Mucho</option>
-                        <option value="regular">Regular</option>
-                        <option value="poco">Poco</option>
-                        <option value="muy poco">Muy poco</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_20" type="radio" name="preg_20" id="preg_20_1" class="form-check-input" value="mucho">
+                        <label for="preg_20_1" class="form-check-label">Mucho</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_20" type="radio" name="preg_20" id="preg_20_2" class="form-check-input" value="regular">
+                        <label for="preg_20_2" class="form-check-label">Regular</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_20" type="radio" name="preg_20" id="preg_20_3" class="form-check-input" value="poco">
+                        <label for="preg_20_3" class="form-check-label">Poco</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_20" type="radio" name="preg_20" id="preg_20_4" class="form-check-input" value="muy poco">
+                        <label for="preg_20_4" class="form-check-label">Muy poco</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_20.errors && (encuestaForm.controls.preg_20.dirty || encuestaForm.controls.preg_20.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
                 <div class="mt-3">
                     <label for="q_1" class="form-label">
                         21. ¿Qué tan fácil fue la comprensión de los temas? <span class="text-danger">*</span>
                     </label>
-                    <select formControlName="preg_21" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="mucho">Mucho</option>
-                        <option value="regular">Regular</option>
-                        <option value="poco">Poco</option>
-                        <option value="muy poco">Muy poco</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_21" type="radio" name="preg_21" id="preg_21_1" class="form-check-input" value="mucho">
+                        <label for="preg_21_1" class="form-check-label">Mucho</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_21" type="radio" name="preg_21" id="preg_21_2" class="form-check-input" value="regular">
+                        <label for="preg_21_2" class="form-check-label">Regular</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_21" type="radio" name="preg_21" id="preg_21_3" class="form-check-input" value="poco">
+                        <label for="preg_21_3" class="form-check-label">Poco</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_21" type="radio" name="preg_21" id="preg_21_4" class="form-check-input" value="muy poco">
+                        <label for="preg_21_4" class="form-check-label">Muy poco</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_21.errors && (encuestaForm.controls.preg_21.dirty || encuestaForm.controls.preg_21.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
@@ -336,64 +451,101 @@
                         22. ¿Cuánto tiempo le dedicabas, de lunes a viernes, a las
                         actividades de aprendizaje (clases, hacer tareas, estudiar, lectura)? <span class="text-danger">*</span>
                     </label>
-                    <select formControlName="preg_22" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="De 3 a 4 horas">De 3 a 4 horas</option>
-                        <option value="De 5 a 6 horas">De 5 a 6 horas</option>
-                        <option value="De 6 a 7 horas">De 6 a 7 horas</option>
-                        <option value="Más de 7 horas">Más de 7 horas</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_22" type="radio" name="preg_22" id="preg_22_1" class="form-check-input" value="De 3 a 4 horas">
+                        <label for="preg_22_1" class="form-check-label">De 3 a 4 horas</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_22" type="radio" name="preg_22" id="preg_22_2" class="form-check-input" value="De 5 a 6 horas">
+                        <label for="preg_22_2" class="form-check-label">De 5 a 6 horas</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_22" type="radio" name="preg_22" id="preg_22_3" class="form-check-input" value="De 6 a 7 horas">
+                        <label for="preg_22_3" class="form-check-label">De 6 a 7 horas</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_22" type="radio" name="preg_22" id="preg_22_4" class="form-check-input" value="Más de 7 horas">
+                        <label for="preg_22_4" class="form-check-label">Más de 7 horas</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_22.errors && (encuestaForm.controls.preg_22.dirty || encuestaForm.controls.preg_22.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
                 <div class="mt-3">
                     <label for="q_1" class="form-label">
                         23. Durante el tiempo de las clases a distancia, crees que aprendiste… <span class="text-danger">*</span>
                     </label>
-                    <select formControlName="preg_23" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="Más que si hubiera ido a clase">Más que si hubiera ido a clase</option>
-                        <option value="Igual que si hubiera ido a clase">Igual que si hubiera ido a clase</option>
-                        <option value="Menos que si hubiera ido a clase">Menos que si hubiera ido a clase</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_23" type="radio" name="preg_23" id="preg_23_1" class="form-check-input" value="Más que si hubiera ido a clase">
+                        <label for="preg_23_1" class="form-check-label">De 5 a 6 horas</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_23" type="radio" name="preg_23" id="preg_23_2" class="form-check-input" value="Igual que si hubiera ido a clase">
+                        <label for="preg_23_2" class="form-check-label">Igual que si hubiera ido a clase</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_23" type="radio" name="preg_23" id="preg_23_3" class="form-check-input" value="Menos que si hubiera ido a clase">
+                        <label for="preg_23_3" class="form-check-label">Menos que si hubiera ido a clase</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_23.errors && (encuestaForm.controls.preg_23.dirty || encuestaForm.controls.preg_23.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
                 <div class="mt-3">
                     <label for="q_1" class="form-label">
                         24. ¿Extrañabas convivir con tus maestros? <span class="text-danger">*</span>
                     </label>
-                    <select formControlName="preg_24" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="mucho">Mucho</option>
-                        <option value="regular">Regular</option>
-                        <option value="poco">Poco</option>
-                        <option value="muy poco">Muy poco</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_24" type="radio" name="preg_24" id="preg_24_1" class="form-check-input" value="mucho">
+                        <label for="preg_24_1" class="form-check-label">Mucho</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_24" type="radio" name="preg_24" id="preg_24_2" class="form-check-input" value="regular">
+                        <label for="preg_24_2" class="form-check-label">Regular</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_24" type="radio" name="preg_24" id="preg_24_3" class="form-check-input" value="poco">
+                        <label for="preg_24_3" class="form-check-label">Poco</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_24" type="radio" name="preg_24" id="preg_24_4" class="form-check-input" value="muy poco">
+                        <label for="preg_24_4" class="form-check-label">Muy poco</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_24.errors && (encuestaForm.controls.preg_24.dirty || encuestaForm.controls.preg_24.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+                
                 <div class="mt-3">
                     <label for="q_1" class="form-label">
                         25. ¿Extrañabas convivir con tus compañeros? <span class="text-danger">*</span>
                     </label>
-                    <select formControlName="preg_25" id="q_1" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione una opcion</option>
-                        <option value="mucho">Mucho</option>
-                        <option value="regular">Regular</option>
-                        <option value="poco">Poco</option>
-                        <option value="muy poco">Muy poco</option>
-                    </select>
+                    <div class="form-check">
+                        <input formControlName="preg_25" type="radio" name="preg_25" id="preg_25_1" class="form-check-input" value="mucho">
+                        <label for="preg_25_1" class="form-check-label">Mucho</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_25" type="radio" name="preg_25" id="preg_25_2" class="form-check-input" value="regular">
+                        <label for="preg_25_2" class="form-check-label">Regular</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_25" type="radio" name="preg_25" id="preg_25_3" class="form-check-input" value="poco">
+                        <label for="preg_25_3" class="form-check-label">Poco</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_25" type="radio" name="preg_25" id="preg_25_4" class="form-check-input" value="muy poco">
+                        <label for="preg_25_4" class="form-check-label">Muy poco</label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_25.errors && (encuestaForm.controls.preg_25.dirty || encuestaForm.controls.preg_25.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
+
 
                 <div class="mt-3">
                     <label for="q_1" class="form-label">
