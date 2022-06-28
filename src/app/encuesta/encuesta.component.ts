@@ -142,9 +142,12 @@ export class EncuestaComponent implements OnInit {
     preg_25: new FormControl(null, [Validators.required]),
     preg_26: new FormControl(null, [Validators.required]),
     preg_27: new FormArray([], [Validators.required, ValidateChecks]),
+    preg_27_OTRO: new FormControl({value: null, disabled: true}, [Validators.required]),
     preg_28: new FormControl(null, [Validators.required]),
     preg_29: new FormControl(null)
   })
+
+  showOtroControl: boolean = false;
 
   constructor(
     private estadoMunicipioService: EstadosMunicipiosService,
@@ -200,7 +203,7 @@ export class EncuestaComponent implements OnInit {
 
 
   enviarRespuestas(): void {
-    //this.validarFormulario();
+    console.log('FORM => ', this.encuestaForm.valid)
     if (this.validarFormulario()) {
       const selectedPreg12 = this.encuestaForm.value.preg_12?.map((checked, i) => checked ? this.preg_12Choices[i].value : null).filter(v => v !== null);
       const selectedPreg14 = this.encuestaForm.value.preg_14?.map((checked, i) => checked ? this.preg_14_15_16Choice[i].value : null).filter(v => v !== null);
@@ -208,6 +211,15 @@ export class EncuestaComponent implements OnInit {
       const selectedPreg16 = this.encuestaForm.value.preg_16?.map((checked, i) => checked ? this.preg_14_15_16Choice[i].value : null).filter(v => v !== null);
       const selectedPreg17 = this.encuestaForm.value.preg_17?.map((checked, i) => checked ? this.preg_17Choice[i].value : null).filter(v => v !== null);
       const selectedPreg27 = this.encuestaForm.value.preg_27?.map((checked, i) => checked ? this.preg_27Choice[i].value : null).filter(v => v !== null);
+
+      if (this.encuestaForm.controls.preg_27_OTRO.enabled) {
+        selectedPreg27?.push(this.encuestaForm.controls.preg_27_OTRO.value)
+      }
+
+      let idx = selectedPreg27?.findIndex(x => x == "Otros")
+      if (idx != -1) {
+        selectedPreg27?.splice(idx as number,1)
+      }
 
       const body = {
         "respuestas": {
@@ -245,6 +257,7 @@ export class EncuestaComponent implements OnInit {
 
       console.log('BODY => ', body)
 
+      //TODO: DESCOMENTAR CUANDO SE TENGA LISTO EL SERVDOR DESPLEGADO
       // this.respuestasService.saveRespuestas(body).subscribe((res: any) => {
       //   if(res.status == 'done') {
       //     Swal.fire({
@@ -293,6 +306,16 @@ export class EncuestaComponent implements OnInit {
       isValid = false;
     }
     return isValid;
+  }
+
+  selectOtro(event: any) {
+    if (event.target.form[99].checked) {
+      this.encuestaForm.controls.preg_27_OTRO.enable()
+      this.showOtroControl = true;
+    } else {
+      this.encuestaForm.controls.preg_27_OTRO.disable()
+      this.showOtroControl = false;
+    }
   }
 
 }
