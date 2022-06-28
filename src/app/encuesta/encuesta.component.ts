@@ -25,8 +25,8 @@ export class EncuestaComponent implements OnInit {
   // LISTAS DE VALORES PARA GENERAR CHECKS
   preg_12Choices: Choice[] = [
     {
-      name: "Via correo electronico",
-      value: "Via correo electronico"
+      name: "Via correo electrónico",
+      value: "Via correo electrónico"
     },
     {
       name: "Plataformas como classroom, teams, etc",
