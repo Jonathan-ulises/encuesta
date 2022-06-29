@@ -208,8 +208,8 @@
                         9. ¿Cuánto se paga por el internet que usas? <span class="text-danger">*</span>
                     </label>
                     <div class="form-check">
-                        <input formControlName="preg_9" type="radio" name="preg_9" id="preg_9_1" class="form-check-input" value="50 a100 pesos">
-                        <label for="preg_9_1" class="form-check-label">50 a100 pesos</label>
+                        <input formControlName="preg_9" type="radio" name="preg_9" id="preg_9_1" class="form-check-input" value="50 a 100 pesos">
+                        <label for="preg_9_1" class="form-check-label">50 a 100 pesos</label>
                     </div>
                     <div class="form-check">
                         <input formControlName="preg_9" type="radio" name="preg_9" id="preg_9_2" class="form-check-input" value="101 a 300 pesos">
@@ -285,11 +285,10 @@
                     </label>
                     <div class="form-check" formArrayName="preg_12" *ngFor="let item of preg_12FormArray.controls; let i = index">
                         <label class="form-check-label" for="{{'preg_12'+'_'+i}}">
-                            {{preg_12Choices[i].name}}
-                            <input [formControlName]="i" class="form-check-input" type="checkbox" 
-                                value="{{preg_12Choices[i].value}}" id="{{'preg_12'+'_'+i}}">
-                                
+                            {{preg_12Choices[i].name}}  
                         </label>
+                        <input [formControlName]="i" class="form-check-input" type="checkbox" 
+                                value="{{preg_12Choices[i].value}}" id="{{'preg_12'+'_'+i}}">
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_12.errors && (encuestaForm.controls.preg_12.dirty || encuestaForm.controls.preg_12.touched)" class="alert alert-danger mt-1" role="alert">
@@ -332,10 +331,9 @@
                     <div class="form-check" formArrayName="preg_14" *ngFor="let item of preg_14FormArray.controls; let i = index">
                         <label class="form-check-label" for="{{'preg_14'+'_'+i}}">
                             {{preg_14_15_16Choice[i].name}}
-                            <input [formControlName]="i" class="form-check-input" type="checkbox" 
-                                value="{{preg_14_15_16Choice[i].value}}" id="{{'preg_14'+'_'+i}}">
-                                
                         </label>
+                        <input [formControlName]="i" class="form-check-input" type="checkbox" 
+                                value="{{preg_14_15_16Choice[i].value}}" id="{{'preg_14'+'_'+i}}">
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_14.errors && (encuestaForm.controls.preg_14.dirty || encuestaForm.controls.preg_14.touched)" class="alert alert-danger mt-1" role="alert">
@@ -352,10 +350,9 @@
                     <div class="form-check" formArrayName="preg_15" *ngFor="let item of preg_15FormArray.controls; let i = index">
                         <label class="form-check-label" for="{{'preg_15'+'_'+i}}">
                             {{preg_14_15_16Choice[i].name}}
-                            <input [formControlName]="i" class="form-check-input" type="checkbox" 
-                                value="{{preg_14_15_16Choice[i].value}}" id="{{'preg_15'+'_'+i}}">
-                                
                         </label>
+                        <input [formControlName]="i" class="form-check-input" type="checkbox" 
+                                value="{{preg_14_15_16Choice[i].value}}" id="{{'preg_15'+'_'+i}}">
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_15.errors && (encuestaForm.controls.preg_15.dirty || encuestaForm.controls.preg_15.touched)" class="alert alert-danger mt-1" role="alert">
@@ -372,10 +369,9 @@
                     <div class="form-check" formArrayName="preg_16" *ngFor="let item of preg_16FormArray.controls; let i = index">
                         <label class="form-check-label" for="{{'preg_16'+'_'+i}}">
                             {{preg_14_15_16Choice[i].name}}
-                            <input [formControlName]="i" class="form-check-input" type="checkbox" 
-                                value="{{preg_14_15_16Choice[i].value}}" id="{{'preg_16'+'_'+i}}">
-                                
                         </label>
+                        <input [formControlName]="i" class="form-check-input" type="checkbox" 
+                                value="{{preg_14_15_16Choice[i].value}}" id="{{'preg_16'+'_'+i}}">
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_16.errors && (encuestaForm.controls.preg_16.dirty || encuestaForm.controls.preg_16.touched)" class="alert alert-danger mt-1" role="alert">
@@ -392,10 +388,9 @@
                     <div class="form-check" formArrayName="preg_17" *ngFor="let item of preg_17FormArray.controls; let i = index">
                         <label class="form-check-label" for="{{'preg_17'+'_'+i}}">
                             {{preg_17Choice[i].name}}
-                            <input [formControlName]="i" class="form-check-input" type="checkbox" 
-                                value="{{preg_17Choice[i].value}}" id="{{'preg_17'+'_'+i}}">
-                                
                         </label>
+                        <input [formControlName]="i" class="form-check-input" type="checkbox" 
+                                value="{{preg_17Choice[i].value}}" id="{{'preg_17'+'_'+i}}">
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_17.errors && (encuestaForm.controls.preg_17.dirty || encuestaForm.controls.preg_17.touched)" class="alert alert-danger mt-1" role="alert">
@@ -518,7 +513,7 @@
                     </label>
                     <div class="form-check">
                         <input formControlName="preg_22" type="radio" name="preg_22" id="preg_22_1" class="form-check-input" value="Más que si hubiera ido a clase">
-                        <label for="preg_22_1" class="form-check-label">De 5 a 6 horas</label>
+                        <label for="preg_22_1" class="form-check-label">Más que si hubiera ido a clase</label>
                     </div>
                     <div class="form-check">
                         <input formControlName="preg_22" type="radio" name="preg_22" id="preg_22_2" class="form-check-input" value="Igual que si hubiera ido a clase">
@@ -652,11 +647,10 @@
                     <div class="form-check" formArrayName="preg_27" *ngFor="let item of preg_27FormArray.controls; let i = index">
                         <label class="form-check-label" for="{{'preg_27'+'_'+i}}">
                             {{preg_27Choice[i].name}}
-                            <input [formControlName]="i" class="form-check-input" type="checkbox" 
+                        </label>
+                        <input [formControlName]="i" class="form-check-input" type="checkbox" 
                                 value="{{preg_27Choice[i].value}}" id="{{'preg_27'+'_'+i}}"
                                 (click)="selectOtro($event)">
-                                
-                        </label>
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_27.errors && (encuestaForm.controls.preg_27.dirty || encuestaForm.controls.preg_27.touched)" class="alert alert-danger mt-1" role="alert">
