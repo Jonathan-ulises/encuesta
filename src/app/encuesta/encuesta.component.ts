@@ -223,11 +223,11 @@ export class EncuestaComponent implements OnInit {
 
       const body = {
         "respuestas": {
-          "1": this.encuestaForm.controls.preg_1_1.value,
-          "2": this.encuestaForm.controls.preg_1_2.value,
-          "3": this.encuestaForm.controls.preg_2.value,
-          "4": this.encuestaForm.controls.preg_3.value,
-          "5": this.encuestaForm.controls.preg_4.value,
+          "1": [this.encuestaForm.controls.preg_1_1.value, this.encuestaForm.controls.preg_1_2.value] ,
+          "2": this.encuestaForm.controls.preg_2.value,
+          "3": this.encuestaForm.controls.preg_3.value,
+          "4": this.encuestaForm.controls.preg_4.value,
+          "5": this.encuestaForm.controls.preg_5.value,
           "6": this.encuestaForm.controls.preg_6.value,
           "7": this.encuestaForm.controls.preg_7.value,
           "8": this.encuestaForm.controls.preg_8.value,
