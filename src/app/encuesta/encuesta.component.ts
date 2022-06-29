@@ -258,32 +258,32 @@ export class EncuestaComponent implements OnInit {
       console.log('BODY => ', body)
 
       //TODO: DESCOMENTAR CUANDO SE TENGA LISTO EL SERVDOR DESPLEGADO
-      // this.respuestasService.saveRespuestas(body).subscribe((res: any) => {
-      //   if(res.status == 'done') {
-      //     Swal.fire({
-      //       title: 'Encuesta Terminada',
-      //       text: 'Gracias por temrinar nuestra encuesta',
-      //       icon: 'success',
-      //       confirmButtonText: 'Terminar'
-      //     }).then((result) => {
-      //       if (result.isConfirmed) {
-      //         this.router.navigateByUrl('');
-      //       }
-      //     })
-      //   } else {
-      //     Swal.fire(
-      //       '',
-      //       'A ocurrido un error',
-      //       'error'
-      //     )
-      //   }
-      // }, (err) => {
-      //   Swal.fire(
-      //     '',
-      //     'A ocurrido un error',
-      //     'error'
-      //   )
-      // })
+      this.respuestasService.saveRespuestas(body).subscribe((res: any) => {
+        if(res.status == 'done') {
+          Swal.fire({
+            title: 'Encuesta Terminada',
+            text: 'Gracias por temrinar nuestra encuesta',
+            icon: 'success',
+            confirmButtonText: 'Terminar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.router.navigateByUrl('');
+            }
+          })
+        } else {
+          Swal.fire(
+            '',
+            'A ocurrido un error',
+            'error'
+          )
+        }
+      }, (err) => {
+        Swal.fire(
+          '',
+          'A ocurrido un error',
+          'error'
+        )
+      })
 
       
     } else {
