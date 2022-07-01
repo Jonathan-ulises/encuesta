@@ -1,57 +1,94 @@
 <div class="container-fluid">
     <div class="row justify-content-center mt-5 mb-5">
         <div class="col-8 shadow p-3" style="background-color: #F4F4F4 ">
+
+
             <form [formGroup]="encuestaForm" (ngSubmit)="enviarRespuestas()">
                 <h3>Contesta todas las preguntas</h3>
+
+
+                <!-- PREGUNTA 1 -->
+                <div class="row mt-3">
+                    <label for="q_1" class="form-label">1. Seleccione el Estado y el Municipio donde residías durante la Pandemia: <span class="text-danger">*</span></label>
+                </div>
                 <div class="row">
-                    <div class="col">
-                        <div class="mt-3">
-                            <label for="q_1" class="form-label">1. Seleccione el estado donde vives <span class="text-danger">*</span></label>
+                    <div class="col-xl-6 col-sm-12 mt-2">
+                        <div>
                             <select id="q_1" class="form-select" aria-label="Default select example" 
-                                formControlName="preg_1" (change)="cargarMunicipios($event)">
+                                formControlName="preg_1_1" (change)="cargarMunicipios($event)">
                                 <option value="" selected>Seleccione una opcion</option>
                                 <option *ngFor="let est of lstEstados" value="{{est.nombre}}">{{est.nombre}}</option>
                             </select>
                         </div>
-                        <div *ngIf="encuestaForm.controls.preg_1.errors && (encuestaForm.controls.preg_1.dirty || encuestaForm.controls.preg_1.touched)" class="alert alert-danger mt-1" role="alert">
+                        <div *ngIf="encuestaForm.controls.preg_1_1.errors && (encuestaForm.controls.preg_1_1.dirty || encuestaForm.controls.preg_1_1.touched)" class="alert alert-danger mt-1" role="alert">
                             Campo obligatorio
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="mt-3">
-                            <label for="q_2" class="form-label">2. Seleccione el municipio donde vives <span class="text-danger">*</span></label>
-                            <select id="q_2" class="form-select" aria-label="Default select example"
-                                formControlName="preg_2">
+                    <div class="col-xl-6 col-sm-12 mt-2">
+                        <div>
+                            <select id="q_1" class="form-select" aria-label="Default select example"
+                                formControlName="preg_1_2">
                                 <option value="" selected>Seleccione una opcion</option>
                                 <option *ngFor="let mun of lstMunicipios" value="{{mun}}">{{mun}}</option>
                             </select>
                         </div>
-                        <div *ngIf="encuestaForm.controls.preg_2.errors && (encuestaForm.controls.preg_2.dirty || encuestaForm.controls.preg_2.touched)" class="alert alert-danger mt-1" role="alert">
+                        <div *ngIf="encuestaForm.controls.preg_1_2.errors && (encuestaForm.controls.preg_1_2.dirty || encuestaForm.controls.preg_1_2.touched)" class="alert alert-danger mt-1" role="alert">
                             Campo obligatorio
                         </div>
                     </div>
                 </div>
 
+
+                <!-- PREGUNTA 2 -->
                 <div class="mt-3">
-                    <label for="ctrFechaNacimiento" class="form-label">3. Fecha de Nacimiento <span class="text-danger">*</span></label>
-                    <input formControlName="preg_3" type="date" class="form-control" id="ctrFechaNacimiento">
+                    <label for="ctrFechaNacimiento" class="form-label">2. Fecha de Nacimiento <span class="text-danger">*</span></label>
+                    <input formControlName="preg_2" type="date" class="form-control" id="ctrFechaNacimiento">
+                </div>
+                <div *ngIf="encuestaForm.controls.preg_2.errors && (encuestaForm.controls.preg_2.dirty || encuestaForm.controls.preg_2.touched)" class="alert alert-danger mt-1" role="alert">
+                    Campo obligatorio
+                </div>
+
+
+                <!-- PREGUNTA 3 -->
+                <div class="mt-3">
+                    <label for="q4" class="form-label">3. Sexo <span class="text-danger">*</span></label>
+                    <div class="form-check">
+                        <input formControlName="preg_3" class="form-check-input" type="radio" name="preg_3" id="preg_3_1" value="MUJER">
+                        <label class="form-check-label" for="preg_3_1">
+                            Femenino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_3" class="form-check-input" type="radio" name="preg_3" id="preg_3_2" value="HOMBRE">
+                        <label class="form-check-label" for="preg_3_2">
+                            Masculino
+                        </label>
+                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_3.errors && (encuestaForm.controls.preg_3.dirty || encuestaForm.controls.preg_3.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
+                <!-- PREGUNTA 4 -->
                 <div class="mt-3">
-                    <label for="q4" class="form-label">4. Sexo <span class="text-danger">*</span></label>
+                    <label for="q5" class="form-label">4. Carrera <span class="text-danger">*</span></label>
                     <div class="form-check">
-                        <input formControlName="preg_4" class="form-check-input" type="radio" name="preg_4" id="preg_4" value="MUJER">
-                        <label class="form-check-label" for="exampleRadios1">
-                            Femenino
+                        <input formControlName="preg_4" type="radio" name="preg_4" id="preg_4_1" class="form-check-input" value="Ing. en Entornos Virtuales y Negocios Digitales">
+                        <label for="preg_4_1" class="form-check-label">
+                            Ingeniería Entornos Virtuales y Negocios Digitales
                         </label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_4" class="form-check-input" type="radio" name="preg_4" id="preg_4" value="HOMBRE">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Masculino
+                        <input formControlName="preg_4" type="radio" name="preg_4" id="preg_4_2" class="form-check-input" value="Ing. en Desarrollo y Gestión de Software">
+                        <label for="preg_4_2" class="form-check-label">
+                            Ingeniería en Desarrollo y Gestión de Software
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_4" type="radio" name="preg_4" id="preg_4_3" class="form-check-input" value="Ing. en Redes Inteligentes y Ciberseguridad">
+                        <label for="preg_4_3" class="form-check-label">
+                            Ingeniería en Redes Inteligentes y Ciberseguridad
                         </label>
                     </div>
                 </div>
@@ -60,25 +97,32 @@
                 </div>
 
 
+                <!-- PREGUNTA 5 -->
                 <div class="mt-3">
-                    <label for="q5" class="form-label">5. Carrera <span class="text-danger">*</span></label>
+                    <label for="q6" class="form-label">5. Cuatrimestre en el que te encontrabas cuando inició la pandemia <span class="text-danger">*</span></label>
                     <div class="form-check">
-                        <input formControlName="preg_5" type="radio" name="preg_5" id="preg_5_1" class="form-check-input" value="Ing. en Entornos Virtuales y Negocios Digitales">
-                        <label for="preg_5_1" class="form-check-label">
-                            Ingeniería Entornos Virtuales y Negocios Digitales
-                        </label>
+                        <input formControlName="preg_5" type="radio" name="preg_5" id="preg_5_1" class="form-check-input" value="primero">
+                        <label for="preg_5_1" class="form-check-label">1</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_5" type="radio" name="preg_5" id="preg_5_2" class="form-check-input" value="Ing. en Desarrollo y Gestión de Software">
-                        <label for="preg_5_2" class="form-check-label">
-                            Ingeniería en Desarrollo y Gestión de Software
-                        </label>
+                        <input formControlName="preg_5" type="radio" name="preg_5" id="preg_5_2" class="form-check-input" value="segundo">
+                        <label for="preg_5_2" class="form-check-label">2</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_5" type="radio" name="preg_5" id="preg_5_3" class="form-check-input" value="Ing. en Redes Inteligentes y Ciberseguridad">
-                        <label for="preg_5_3" class="form-check-label">
-                            Ingeniería en Redes Inteligentes y Ciberseguridad
-                        </label>
+                        <input formControlName="preg_5" type="radio" name="preg_5" id="preg_5_3" class="form-check-input" value="tercero">
+                        <label for="preg_5_3" class="form-check-label">3</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_5" type="radio" name="preg_5" id="preg_5_4" class="form-check-input" value="cuarto">
+                        <label for="preg_5_4" class="form-check-label">4</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_5" type="radio" name="preg_5" id="preg_5_5" class="form-check-input" value="quinto">
+                        <label for="preg_5_5" class="form-check-label">5</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_5" type="radio" name="preg_5" id="preg_5_6" class="form-check-input" value="sexto">
+                        <label for="preg_5_6" class="form-check-label">6</label>
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_5.errors && (encuestaForm.controls.preg_5.dirty || encuestaForm.controls.preg_5.touched)" class="alert alert-danger mt-1" role="alert">
@@ -86,58 +130,52 @@
                 </div>
 
 
+                <!-- PREGUNTA 6 -->
                 <div class="mt-3">
-                    <label for="q6" class="form-label">6. Cuatrimestre en el que te encontrabas cuando inicio la pandemia <span class="text-danger">*</span></label>
+                    <label for="q7" class="form-label">6. Cuatrimestre Actual <span class="text-danger">*</span></label>
                     <div class="form-check">
-                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_1" class="form-check-input" value="primero">
-                        <label for="preg_6_1" class="form-check-label">1</label>
+                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_1" class="form-check-input" value="septimo">
+                        <label for="preg_6_1" class="form-check-label">7</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_2" class="form-check-input" value="segundo">
-                        <label for="preg_6_2" class="form-check-label">2</label>
+                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_2" class="form-check-input" value="octavo">
+                        <label for="preg_6_2" class="form-check-label">8</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_3" class="form-check-input" value="tercero">
-                        <label for="preg_6_3" class="form-check-label">3</label>
+                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_3" class="form-check-input" value="noveno">
+                        <label for="preg_6_3" class="form-check-label">9</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_4" class="form-check-input" value="cuarto">
-                        <label for="preg_6_4" class="form-check-label">4</label>
+                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_4" class="form-check-input" value="decimo">
+                        <label for="preg_6_4" class="form-check-label">10</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_5" class="form-check-input" value="quinto">
-                        <label for="preg_6_5" class="form-check-label">5</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_6" class="form-check-input" value="sexto">
-                        <label for="preg_6_6" class="form-check-label">6</label>
+                        <input formControlName="preg_6" type="radio" name="preg_6" id="preg_6_5" class="form-check-input" value="onceavo">
+                        <label for="preg_6_5" class="form-check-label">11</label>
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_6.errors && (encuestaForm.controls.preg_6.dirty || encuestaForm.controls.preg_6.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
+                <!-- PREGUNTA 7 -->
                 <div class="mt-3">
-                    <label for="q7" class="form-label">7. Cuatrimestre Actual <span class="text-danger">*</span></label>
+                    <label for="q8" class="form-label">
+                        7. Durante el confinamiento ¿disponías de un espacio específico de 
+                        trabajo en tu casa (cuarto de trabajo, estancia o despacho)? <span class="text-danger">*</span>
+                    </label>
                     <div class="form-check">
-                        <input formControlName="preg_7" type="radio" name="preg_7" id="preg_7_1" class="form-check-input" value="septimo">
-                        <label for="preg_7_1" class="form-check-label">7</label>
+                        <input formControlName="preg_7" type="radio" name="preg_7" id="preg_7_1" class="form-check-input" value="si">
+                        <label for="preg_7_1" class="form-check-label">Si</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_7" type="radio" name="preg_7" id="preg_7_2" class="form-check-input" value="octavo">
-                        <label for="preg_7_2" class="form-check-label">8</label>
+                        <input formControlName="preg_7" type="radio" name="preg_7" id="preg_7_2" class="form-check-input" value="no">
+                        <label for="preg_7_2" class="form-check-label">No</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_7" type="radio" name="preg_7" id="preg_7_3" class="form-check-input" value="noveno">
-                        <label for="preg_7_3" class="form-check-label">9</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_7" type="radio" name="preg_7" id="preg_7_4" class="form-check-input" value="decimo">
-                        <label for="preg_7_4" class="form-check-label">10</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_7" type="radio" name="preg_7" id="preg_7_5" class="form-check-input" value="onceavo">
-                        <label for="preg_7_5" class="form-check-label">11</label>
+                        <input formControlName="preg_7" type="radio" name="preg_7" id="preg_7_3" class="form-check-input" value="era compartido">
+                        <label for="preg_7_3" class="form-check-label">Era compartido</label>
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_7.errors && (encuestaForm.controls.preg_7.dirty || encuestaForm.controls.preg_7.touched)" class="alert alert-danger mt-1" role="alert">
@@ -145,10 +183,10 @@
                 </div>
 
 
+                <!-- PREGUNTA 8 -->
                 <div class="mt-3">
-                    <label for="q8" class="form-label">
-                        8. Durante el confinamiento ¿disponías de un espacio específico de trabajo
-                        en tu casa (cuarto de trabajo, estancia o despacho)? <span class="text-danger">*</span>
+                    <label for="q9" class="form-label">
+                        8. ¿En tu casa contaban con internet al inicio de la pandemia? <span class="text-danger">*</span>
                     </label>
                     <div class="form-check">
                         <input formControlName="preg_8" type="radio" name="preg_8" id="preg_8_1" class="form-check-input" value="si">
@@ -158,26 +196,32 @@
                         <input formControlName="preg_8" type="radio" name="preg_8" id="preg_8_2" class="form-check-input" value="no">
                         <label for="preg_8_2" class="form-check-label">No</label>
                     </div>
-                    <div class="form-check">
-                        <input formControlName="preg_8" type="radio" name="preg_8" id="preg_8_3" class="form-check-input" value="era compartido">
-                        <label for="preg_8_3" class="form-check-label">Era compartido</label>
-                    </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_8.errors && (encuestaForm.controls.preg_8.dirty || encuestaForm.controls.preg_8.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
+                <!-- PREGUNTA 9 -->
                 <div class="mt-3">
-                    <label for="q9" class="form-label">
-                        9. ¿En tu casa contaban con internet al inicio de la pandemia? <span class="text-danger">*</span>
+                    <label for="q10" class="form-label">
+                        9. ¿Cuánto se paga por el internet que usas? <span class="text-danger">*</span>
                     </label>
                     <div class="form-check">
-                        <input formControlName="preg_9" type="radio" name="preg_9" id="preg_9_1" class="form-check-input" value="si">
-                        <label for="preg_9_1" class="form-check-label">Si</label>
+                        <input formControlName="preg_9" type="radio" name="preg_9" id="preg_9_1" class="form-check-input" value="50 a 100 pesos">
+                        <label for="preg_9_1" class="form-check-label">50 a 100 pesos</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_9" type="radio" name="preg_9" id="preg_9_2" class="form-check-input" value="no">
-                        <label for="preg_9_2" class="form-check-label">No</label>
+                        <input formControlName="preg_9" type="radio" name="preg_9" id="preg_9_2" class="form-check-input" value="101 a 300 pesos">
+                        <label for="preg_9_2" class="form-check-label">101 a 300 pesos</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_9" type="radio" name="preg_9" id="preg_9_3" class="form-check-input" value="301 a 500 pesos">
+                        <label for="preg_9_3" class="form-check-label">301 a 500 pesos</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_9" type="radio" name="preg_9" id="preg_9_4" class="form-check-input" value="501 o más">
+                        <label for="preg_9_4" class="form-check-label">501 o más</label>
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_9.errors && (encuestaForm.controls.preg_9.dirty || encuestaForm.controls.preg_9.touched)" class="alert alert-danger mt-1" role="alert">
@@ -185,25 +229,27 @@
                 </div>
 
 
+                <!-- PREGUNTA 10 -->
                 <div class="mt-3">
-                    <label for="q10" class="form-label">
-                        10. ¿Cuánto se paga por el internet que usas? <span class="text-danger">*</span>
+                    <label for="q11" class="form-label">
+                        10. ¿Qué tipo de dispositivo utilizabas con mayor frecuencia para
+                        las clases en línea? <span class="text-danger">*</span>
                     </label>
                     <div class="form-check">
-                        <input formControlName="preg_10" type="radio" name="preg_10" id="preg_10_1" class="form-check-input" value="50 a100 pesos">
-                        <label for="preg_10_1" class="form-check-label">50 a100 pesos</label>
+                        <input formControlName="preg_10" type="radio" name="preg_10" id="preg_10_1" class="form-check-input" value="computadora">
+                        <label for="preg_10_1" class="form-check-label">Computadora</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_10" type="radio" name="preg_10" id="preg_10_2" class="form-check-input" value="101 a 300 pesos">
-                        <label for="preg_10_2" class="form-check-label">101 a 300 pesos</label>
+                        <input formControlName="preg_10" type="radio" name="preg_10" id="preg_10_2" class="form-check-input" value="tablet">
+                        <label for="preg_10_2" class="form-check-label">Tablet</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_10" type="radio" name="preg_10" id="preg_10_3" class="form-check-input" value="301 a 500 pesos">
-                        <label for="preg_10_3" class="form-check-label">301 a 500 pesos</label>
+                        <input formControlName="preg_10" type="radio" name="preg_10" id="preg_10_3" class="form-check-input" value="celular">
+                        <label for="preg_10_3" class="form-check-label">Celular</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_10" type="radio" name="preg_10" id="preg_10_4" class="form-check-input" value="501 o más">
-                        <label for="preg_10_4" class="form-check-label">501 o más</label>
+                        <input formControlName="preg_10" type="radio" name="preg_10" id="preg_10_4" class="form-check-input" value="televisión">
+                        <label for="preg_10_4" class="form-check-label">Televisión</label>
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_10.errors && (encuestaForm.controls.preg_10.dirty || encuestaForm.controls.preg_10.touched)" class="alert alert-danger mt-1" role="alert">
@@ -211,26 +257,19 @@
                 </div>
 
 
+                <!-- PREGUNTA 11 -->
                 <div class="mt-3">
-                    <label for="q11" class="form-label">
-                        11. ¿Qué tipo de dispositivo utilizabas con mayor frecuencia para
-                        tus clases en línea? <span class="text-danger">*</span>
+                    <label for="q12" class="form-label">
+                        11. ¿Tuviste la necesidad de comprar algún dispositivo para
+                        poder tomar las clases en línea? <span class="text-danger">*</span>
                     </label>
                     <div class="form-check">
-                        <input formControlName="preg_11" type="radio" name="preg_11" id="preg_11_1" class="form-check-input" value="computadora">
-                        <label for="preg_11_1" class="form-check-label">Computadora</label>
+                        <input formControlName="preg_11" type="radio" name="preg_11" id="preg_11_1" class="form-check-input" value="si">
+                        <label for="preg_11_1" class="form-check-label">Si</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_11" type="radio" name="preg_11" id="preg_11_2" class="form-check-input" value="tablet">
-                        <label for="preg_11_2" class="form-check-label">Tablet</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_11" type="radio" name="preg_11" id="preg_11_3" class="form-check-input" value="celular">
-                        <label for="preg_11_3" class="form-check-label">Celular</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_11" type="radio" name="preg_11" id="preg_11_4" class="form-check-input" value="televisión">
-                        <label for="preg_11_4" class="form-check-label">Televisión</label>
+                        <input formControlName="preg_11" type="radio" name="preg_11" id="preg_11_2" class="form-check-input" value="no">
+                        <label for="preg_11_2" class="form-check-label">No</label>
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_11.errors && (encuestaForm.controls.preg_11.dirty || encuestaForm.controls.preg_11.touched)" class="alert alert-danger mt-1" role="alert">
@@ -238,18 +277,18 @@
                 </div>
 
 
+                <!-- PREGUNTA 12 -->
                 <div class="mt-3">
-                    <label for="q12" class="form-label">
-                        12. ¿Tuviste la necesidad de comprar algún dispositivo para
-                        poder tomar las clases en línea? <span class="text-danger">*</span>
+                    <label for="q13" class="form-label">
+                        12. ¿En cuál de los siguientes medios entregabas trabajos o 
+                        actividades escolares? (Selección Múltiple) <span class="text-danger">*</span>
                     </label>
-                    <div class="form-check">
-                        <input formControlName="preg_12" type="radio" name="preg_12" id="preg_12_1" class="form-check-input" value="si">
-                        <label for="preg_12_1" class="form-check-label">Si</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_12" type="radio" name="preg_12" id="preg_12_2" class="form-check-input" value="no">
-                        <label for="preg_12_2" class="form-check-label">No</label>
+                    <div class="form-check" formArrayName="preg_12" *ngFor="let item of preg_12FormArray.controls; let i = index">
+                        <label class="form-check-label" for="{{'preg_12'+'_'+i}}">
+                            {{preg_12Choices[i].name}}  
+                        </label>
+                        <input [formControlName]="i" class="form-check-input" type="checkbox" 
+                                value="{{preg_12Choices[i].value}}" id="{{'preg_12'+'_'+i}}">
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_12.errors && (encuestaForm.controls.preg_12.dirty || encuestaForm.controls.preg_12.touched)" class="alert alert-danger mt-1" role="alert">
@@ -257,115 +296,128 @@
                 </div>
 
 
+                <!-- PREGUNTA 13 -->
                 <div class="mt-3">
-                    <label for="q13" class="form-label">
-                        13. ¿En cuál de los siguientes medios entregabas trabajos,
-                        actividades escolares? (Selección Múltiple) <span class="text-danger">*</span>
+                    <label for="q14" class="form-label">
+                        13. ¿Qué tan complicado fue el manejar las plataformas? <span class="text-danger">*</span>
                     </label>
-                    <div class="form-check" formArrayName="preg_13" *ngFor="let item of preg_13FormArray.controls; let i = index">
-                        <label class="form-check-label" for="{{'preg_13'+'_'+i}}">
-                            {{preg_13Choices[i].name}}
-                            <input [formControlName]="i" class="form-check-input" type="checkbox" 
-                                value="Via correo electronico" id="{{'preg_13'+'_'+i}}">
-                                
-                        </label>
+                    <div class="form-check">
+                        <input formControlName="preg_13" type="radio" name="preg_13" id="preg_13_1" class="form-check-input" value="mucho">
+                        <label for="preg_13_1" class="form-check-label">Mucho</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_13" type="radio" name="preg_13" id="preg_13_2" class="form-check-input" value="regular">
+                        <label for="preg_13_2" class="form-check-label">Regular</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_13" type="radio" name="preg_13" id="preg_13_3" class="form-check-input" value="poco">
+                        <label for="preg_13_3" class="form-check-label">Poco</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_13" type="radio" name="preg_13" id="preg_13_4" class="form-check-input" value="muy poco">
+                        <label for="preg_13_4" class="form-check-label">Muy poco</label>
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_13.errors && (encuestaForm.controls.preg_13.dirty || encuestaForm.controls.preg_13.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+                <!-- PREGUNTA 14 -->
                 <div class="mt-3">
-                    <label for="q14" class="form-label">
-                        14. ¿Qué tan complicado fue el manejar las plataformas? <span class="text-danger">*</span>
+                    <label for="q15" class="form-label">
+                        14. ¿Qué forma de evaluación on-line utilizaban las maestras y los 
+                        maestros para evaluarte? (Selección Múltiple)<span class="text-danger">*</span>
                     </label>
-                    <div class="form-check">
-                        <input formControlName="preg_14" type="radio" name="preg_14" id="preg_14_1" class="form-check-input" value="mucho">
-                        <label for="preg_14_1" class="form-check-label">Mucho</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_14" type="radio" name="preg_14" id="preg_14_2" class="form-check-input" value="regular">
-                        <label for="preg_14_2" class="form-check-label">Regular</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_14" type="radio" name="preg_14" id="preg_14_3" class="form-check-input" value="poco">
-                        <label for="preg_14_3" class="form-check-label">Poco</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_14" type="radio" name="preg_14" id="preg_14_4" class="form-check-input" value="muy poco">
-                        <label for="preg_14_4" class="form-check-label">Muy poco</label>
+                    <div class="form-check" formArrayName="preg_14" *ngFor="let item of preg_14FormArray.controls; let i = index">
+                        <label class="form-check-label" for="{{'preg_14'+'_'+i}}">
+                            {{preg_14_15_16Choice[i].name}}
+                        </label>
+                        <input [formControlName]="i" class="form-check-input" type="checkbox" 
+                                value="{{preg_14_15_16Choice[i].value}}" id="{{'preg_14'+'_'+i}}">
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_14.errors && (encuestaForm.controls.preg_14.dirty || encuestaForm.controls.preg_14.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
+                <!-- PREGUNTA 15 -->
                 <div class="mt-3">
-                    <label for="q15" class="form-label">
-                        15. ¿Qué sistemas on-line utilizaban los profesores para evaluarte?
+                    <label for="q16" class="form-label">
+                        15. Señala las dos formas de evaluación on-line que MEJOR valoras
                         (Selección Múltiple) <span class="text-danger">*</span>
                     </label>
                     <div class="form-check" formArrayName="preg_15" *ngFor="let item of preg_15FormArray.controls; let i = index">
                         <label class="form-check-label" for="{{'preg_15'+'_'+i}}">
-                            {{preg_15_16_17Choice[i].name}}
-                            <input [formControlName]="i" class="form-check-input" type="checkbox" 
-                                value="Via correo electronico" id="{{'preg_15'+'_'+i}}">
-                                
+                            {{preg_14_15_16Choice[i].name}}
                         </label>
+                        <input [formControlName]="i" class="form-check-input" type="checkbox" 
+                                value="{{preg_14_15_16Choice[i].value}}" id="{{'preg_15'+'_'+i}}">
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_15.errors && (encuestaForm.controls.preg_15.dirty || encuestaForm.controls.preg_15.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
+                <!-- PREGUNTA 16 -->
                 <div class="mt-3">
-                    <label for="q16" class="form-label">
-                        16. Señala los dos sistemas de evaluación
-                        on-line que MEJOR valoras (Selección Múltiple) <span class="text-danger">*</span>
+                    <label for="q17" class="form-label">
+                        16. Señala las dos formas de evaluación on-line que PEOR valoras
+                        (Selección Múltiple) <span class="text-danger">*</span>
                     </label>
                     <div class="form-check" formArrayName="preg_16" *ngFor="let item of preg_16FormArray.controls; let i = index">
                         <label class="form-check-label" for="{{'preg_16'+'_'+i}}">
-                            {{preg_15_16_17Choice[i].name}}
-                            <input [formControlName]="i" class="form-check-input" type="checkbox" 
-                                value="Via correo electronico" id="{{'preg_16'+'_'+i}}">
-                                
+                            {{preg_14_15_16Choice[i].name}}
                         </label>
+                        <input [formControlName]="i" class="form-check-input" type="checkbox" 
+                                value="{{preg_14_15_16Choice[i].value}}" id="{{'preg_16'+'_'+i}}">
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_16.errors && (encuestaForm.controls.preg_16.dirty || encuestaForm.controls.preg_16.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
+                <!-- PREGUNTA 17 -->
                 <div class="mt-3">
-                    <label for="q17" class="form-label">
-                        17. Señala los dos sistemas de evaluación on-line que
-                        PEOR valoras (Selección Múltiple) <span class="text-danger">*</span>
+                    <label for="q18" class="form-label">
+                        17. ¿Qué dificultades llegaste a tener durante tus evaluaciones on-line? 
+                        (Selección Múltiple) <span class="text-danger">*</span>
                     </label>
                     <div class="form-check" formArrayName="preg_17" *ngFor="let item of preg_17FormArray.controls; let i = index">
                         <label class="form-check-label" for="{{'preg_17'+'_'+i}}">
-                            {{preg_15_16_17Choice[i].name}}
-                            <input [formControlName]="i" class="form-check-input" type="checkbox" 
-                                value="Via correo electronico" id="{{'preg_17'+'_'+i}}">
-                                
+                            {{preg_17Choice[i].name}}
                         </label>
+                        <input [formControlName]="i" class="form-check-input" type="checkbox" 
+                                value="{{preg_17Choice[i].value}}" id="{{'preg_17'+'_'+i}}">
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_17.errors && (encuestaForm.controls.preg_17.dirty || encuestaForm.controls.preg_17.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
+                <!-- PREGUNTA 18 -->
                 <div class="mt-3">
-                    <label for="q18" class="form-label">
-                        18. ¿Qué dificultades llegaste a tener durante tus
-                        evaluaciones on-line? (Selección Múltiple) <span class="text-danger">*</span>
+                    <label for="q19" class="form-label">
+                        18. ¿Qué tan cómodo/a te sentías con las clases virtuale?. ¿Qué tan cómoda o cómodo te sentías con las clases virtuales? <span class="text-danger">*</span>
                     </label>
-                    <div class="form-check" formArrayName="preg_18" *ngFor="let item of preg_18FormArray.controls; let i = index">
-                        <label class="form-check-label" for="{{'preg_18'+'_'+i}}">
-                            {{preg_18Choice[i].name}}
-                            <input [formControlName]="i" class="form-check-input" type="checkbox" 
-                                value="Via correo electronico" id="{{'preg_18'+'_'+i}}">
-                                
-                        </label>
+                    <div class="form-check">
+                        <input formControlName="preg_18" type="radio" name="preg_18" id="preg_18_1" class="form-check-input" value="mucho">
+                        <label for="preg_18_1" class="form-check-label">Mucho</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_18" type="radio" name="preg_18" id="preg_18_2" class="form-check-input" value="regular">
+                        <label for="preg_18_2" class="form-check-label">Regular</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_18" type="radio" name="preg_18" id="preg_18_3" class="form-check-input" value="poco">
+                        <label for="preg_18_3" class="form-check-label">Poco</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_18" type="radio" name="preg_18" id="preg_18_4" class="form-check-input" value="muy poco">
+                        <label for="preg_18_4" class="form-check-label">Muy poco</label>
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_18.errors && (encuestaForm.controls.preg_18.dirty || encuestaForm.controls.preg_18.touched)" class="alert alert-danger mt-1" role="alert">
@@ -373,9 +425,10 @@
                 </div>
 
 
+                <!-- PREGUNTA 19 -->
                 <div class="mt-3">
-                    <label for="q19" class="form-label">
-                        19. ¿Qué tan cómodo/a te sentías con las clases virtuales? <span class="text-danger">*</span>
+                    <label for="q20" class="form-label">
+                        19. ¿Qué tan fácil era poder aclarar una duda con algún maestro o maestra? <span class="text-danger">*</span>
                     </label>
                     <div class="form-check">
                         <input formControlName="preg_19" type="radio" name="preg_19" id="preg_19_1" class="form-check-input" value="mucho">
@@ -399,9 +452,10 @@
                 </div>
 
 
+                <!-- PREGUNTA 20 -->
                 <div class="mt-3">
-                    <label for="q20" class="form-label">
-                        20. ¿Qué tan fácil era poder aclarar una duda con algún maestro? <span class="text-danger">*</span>
+                    <label for="q21" class="form-label">
+                        20. ¿Qué tan fácil fue la comprensión de los temas? <span class="text-danger">*</span>
                     </label>
                     <div class="form-check">
                         <input formControlName="preg_20" type="radio" name="preg_20" id="preg_20_1" class="form-check-input" value="mucho">
@@ -425,51 +479,49 @@
                 </div>
 
 
+                <!-- PREGUNTA 21 -->
                 <div class="mt-3">
-                    <label for="q21" class="form-label">
-                        21. ¿Qué tan fácil fue la comprensión de los temas? <span class="text-danger">*</span>
+                    <label for="q22" class="form-label">
+                        21.  ¿Cuánto tiempo le dedicabas, de lunes a viernes, a las actividades de aprendizaje (clases, hacer tareas, estudiar, lectura)? <span class="text-danger">*</span>
                     </label>
                     <div class="form-check">
-                        <input formControlName="preg_21" type="radio" name="preg_21" id="preg_21_1" class="form-check-input" value="mucho">
-                        <label for="preg_21_1" class="form-check-label">Mucho</label>
+                        <input formControlName="preg_21" type="radio" name="preg_21" id="preg_21_1" class="form-check-input" value="De 3 a 4 horas">
+                        <label for="preg_21_1" class="form-check-label">De 3 a 4 horas</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_21" type="radio" name="preg_21" id="preg_21_2" class="form-check-input" value="regular">
-                        <label for="preg_21_2" class="form-check-label">Regular</label>
+                        <input formControlName="preg_21" type="radio" name="preg_21" id="preg_21_2" class="form-check-input" value="De 5 a 6 horas">
+                        <label for="preg_21_2" class="form-check-label">De 5 a 6 horas</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_21" type="radio" name="preg_21" id="preg_21_3" class="form-check-input" value="poco">
-                        <label for="preg_21_3" class="form-check-label">Poco</label>
+                        <input formControlName="preg_21" type="radio" name="preg_21" id="preg_21_3" class="form-check-input" value="De 6 a 7 horas">
+                        <label for="preg_21_3" class="form-check-label">De 6 a 7 horas</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_21" type="radio" name="preg_21" id="preg_21_4" class="form-check-input" value="muy poco">
-                        <label for="preg_21_4" class="form-check-label">Muy poco</label>
+                        <input formControlName="preg_21" type="radio" name="preg_21" id="preg_21_4" class="form-check-input" value="Más de 7 horas">
+                        <label for="preg_21_4" class="form-check-label">Más de 7 horas</label>
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_21.errors && (encuestaForm.controls.preg_21.dirty || encuestaForm.controls.preg_21.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+
+                <!-- PREGUNTA 22 -->
                 <div class="mt-3">
-                    <label for="q22" class="form-label">
-                        22. ¿Cuánto tiempo le dedicabas, de lunes a viernes, a las
-                        actividades de aprendizaje (clases, hacer tareas, estudiar, lectura)? <span class="text-danger">*</span>
+                    <label for="q23" class="form-label">
+                        22. Durante el tiempo de las clases a distancia, crees que aprendiste… <span class="text-danger">*</span>
                     </label>
                     <div class="form-check">
-                        <input formControlName="preg_22" type="radio" name="preg_22" id="preg_22_1" class="form-check-input" value="De 3 a 4 horas">
-                        <label for="preg_22_1" class="form-check-label">De 3 a 4 horas</label>
+                        <input formControlName="preg_22" type="radio" name="preg_22" id="preg_22_1" class="form-check-input" value="Más que si hubiera ido a clase">
+                        <label for="preg_22_1" class="form-check-label">Más que si hubiera ido a clase</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_22" type="radio" name="preg_22" id="preg_22_2" class="form-check-input" value="De 5 a 6 horas">
-                        <label for="preg_22_2" class="form-check-label">De 5 a 6 horas</label>
+                        <input formControlName="preg_22" type="radio" name="preg_22" id="preg_22_2" class="form-check-input" value="Igual que si hubiera ido a clase">
+                        <label for="preg_22_2" class="form-check-label">Igual que si hubiera ido a clase</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_22" type="radio" name="preg_22" id="preg_22_3" class="form-check-input" value="De 6 a 7 horas">
-                        <label for="preg_22_3" class="form-check-label">De 6 a 7 horas</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_22" type="radio" name="preg_22" id="preg_22_4" class="form-check-input" value="Más de 7 horas">
-                        <label for="preg_22_4" class="form-check-label">Más de 7 horas</label>
+                        <input formControlName="preg_22" type="radio" name="preg_22" id="preg_22_3" class="form-check-input" value="Menos que si hubiera ido a clase">
+                        <label for="preg_22_3" class="form-check-label">Menos que si hubiera ido a clase</label>
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_22.errors && (encuestaForm.controls.preg_22.dirty || encuestaForm.controls.preg_22.touched)" class="alert alert-danger mt-1" role="alert">
@@ -477,31 +529,37 @@
                 </div>
 
 
+                <!-- PREGUNTA 23 -->
                 <div class="mt-3">
-                    <label for="q23" class="form-label">
-                        23. Durante el tiempo de las clases a distancia, crees que aprendiste… <span class="text-danger">*</span>
+                    <label for="q24" class="form-label">
+                        23. ¿Extrañabas convivir con tus maestros y maestras? <span class="text-danger">*</span>
                     </label>
                     <div class="form-check">
-                        <input formControlName="preg_23" type="radio" name="preg_23" id="preg_23_1" class="form-check-input" value="Más que si hubiera ido a clase">
-                        <label for="preg_23_1" class="form-check-label">De 5 a 6 horas</label>
+                        <input formControlName="preg_23" type="radio" name="preg_23" id="preg_23_1" class="form-check-input" value="mucho">
+                        <label for="preg_23_1" class="form-check-label">Mucho</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_23" type="radio" name="preg_23" id="preg_23_2" class="form-check-input" value="Igual que si hubiera ido a clase">
-                        <label for="preg_23_2" class="form-check-label">Igual que si hubiera ido a clase</label>
+                        <input formControlName="preg_23" type="radio" name="preg_23" id="preg_23_2" class="form-check-input" value="regular">
+                        <label for="preg_23_2" class="form-check-label">Regular</label>
                     </div>
                     <div class="form-check">
-                        <input formControlName="preg_23" type="radio" name="preg_23" id="preg_23_3" class="form-check-input" value="Menos que si hubiera ido a clase">
-                        <label for="preg_23_3" class="form-check-label">Menos que si hubiera ido a clase</label>
+                        <input formControlName="preg_23" type="radio" name="preg_23" id="preg_23_3" class="form-check-input" value="poco">
+                        <label for="preg_23_3" class="form-check-label">Poco</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_23" type="radio" name="preg_23" id="preg_23_4" class="form-check-input" value="muy poco">
+                        <label for="preg_23_4" class="form-check-label">Muy poco</label>
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_23.errors && (encuestaForm.controls.preg_23.dirty || encuestaForm.controls.preg_23.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
-
+                
+                <!-- PREGUNTA 24 -->
                 <div class="mt-3">
-                    <label for="q24" class="form-label">
-                        24. ¿Extrañabas convivir con tus maestros? <span class="text-danger">*</span>
+                    <label for="q25" class="form-label">
+                        24. ¿Extrañabas convivir con tus compañeros / compañeras? <span class="text-danger">*</span>
                     </label>
                     <div class="form-check">
                         <input formControlName="preg_24" type="radio" name="preg_24" id="preg_24_1" class="form-check-input" value="mucho">
@@ -524,10 +582,11 @@
                     Campo obligatorio
                 </div>
 
-                
+
+                <!-- PREGUNTA 25 -->
                 <div class="mt-3">
-                    <label for="q25" class="form-label">
-                        25. ¿Extrañabas convivir con tus compañeros? <span class="text-danger">*</span>
+                    <label for="q26" class="form-label">
+                        25. ¿Extrañabas asistir a la universidad? <span class="text-danger">*</span>
                     </label>
                     <div class="form-check">
                         <input formControlName="preg_25" type="radio" name="preg_25" id="preg_25_1" class="form-check-input" value="mucho">
@@ -551,9 +610,11 @@
                 </div>
 
 
+                <!-- PREGUNTA 26 -->
                 <div class="mt-3">
-                    <label for="q26" class="form-label">
-                        26. ¿Extrañabas asistir a la universidad? <span class="text-danger">*</span>
+                    <label for="q27" class="form-label">
+                        26. ¿En algún momento te llegaste a sentir agredido
+                        en clases virtuales por tus compañeros o compañeras? <span class="text-danger">*</span>
                     </label>
                     <div class="form-check">
                         <input formControlName="preg_26" type="radio" name="preg_26" id="preg_26_1" class="form-check-input" value="mucho">
@@ -577,72 +638,61 @@
                 </div>
 
 
+                <!-- PREGUNTA 27 -->
                 <div class="mt-3">
-                    <label for="q27" class="form-label">
-                        27. ¿En algún momento te llegaste a sentir agredido
-                        en clases virtuales por tus compañeros o compañeras? <span class="text-danger">*</span>
+                    <label for="q28" class="form-label">
+                        27. Durante el confinamiento, qué actividades tuviste que
+                        compatibilizar (Respuesta Múltiple) <span class="text-danger">*</span>
                     </label>
-                    <div class="form-check">
-                        <input formControlName="preg_27" type="radio" name="preg_27" id="preg_27_1" class="form-check-input" value="mucho">
-                        <label for="preg_27_1" class="form-check-label">Mucho</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_27" type="radio" name="preg_27" id="preg_27_2" class="form-check-input" value="regular">
-                        <label for="preg_27_2" class="form-check-label">Regular</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_27" type="radio" name="preg_27" id="preg_27_3" class="form-check-input" value="poco">
-                        <label for="preg_27_3" class="form-check-label">Poco</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_27" type="radio" name="preg_27" id="preg_27_4" class="form-check-input" value="muy poco">
-                        <label for="preg_27_4" class="form-check-label">Muy poco</label>
+                    <div class="form-check" formArrayName="preg_27" *ngFor="let item of preg_27FormArray.controls; let i = index">
+                        <label class="form-check-label" for="{{'preg_27'+'_'+i}}">
+                            {{preg_27Choice[i].name}}
+                        </label>
+                        <input [formControlName]="i" class="form-check-input" type="checkbox" 
+                                value="{{preg_27Choice[i].value}}" id="{{'preg_27'+'_'+i}}"
+                                (click)="selectOtro($event)">
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_27.errors && (encuestaForm.controls.preg_27.dirty || encuestaForm.controls.preg_27.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
+                <!-- PREGUNTA 27_OTRO -->
+                <div *ngIf="showOtroControl">
+                    <input formControlName="preg_27_OTRO" type="text" class="form-control" id="ctrOtro">
+                </div>
+                <div *ngIf="encuestaForm.controls.preg_27_OTRO.errors && (encuestaForm.controls.preg_27_OTRO.dirty || encuestaForm.controls.preg_27_OTRO.touched)" class="alert alert-danger mt-1" role="alert">
+                    Campo OTRO obligatorio
+                </div>
+                <!-- <div *ngIf="encuestaForm.controls.preg_2.errors && (encuestaForm.controls.preg_2.dirty || encuestaForm.controls.preg_2.touched)" class="alert alert-danger mt-1" role="alert">
+                    Campo obligatorio
+                </div> -->
 
+
+                <!-- PREGUNTA 28 -->
                 <div class="mt-3">
-                    <label for="q28" class="form-label">
-                        28. Durante el confinamiento, qué actividades tuviste que
-                        compatibilizar (Respuesta Múltiple) <span class="text-danger">*</span>
+                    <label for="q29" class="form-label">
+                        28. ¿Preferirías continuar tus estudios en modalidad virtual? <span class="text-danger">*</span>
                     </label>
-                    <div class="form-check" formArrayName="preg_28" *ngFor="let item of preg_28FormArray.controls; let i = index">
-                        <label class="form-check-label" for="{{'preg_28'+'_'+i}}">
-                            {{preg_28Choice[i].name}}
-                            <input [formControlName]="i" class="form-check-input" type="checkbox" 
-                                value="Via correo electronico" id="{{'preg_28'+'_'+i}}">
-                                
-                        </label>
+                    <div class="form-check">
+                        <input formControlName="preg_28" type="radio" name="preg_28" id="preg_28_1" class="form-check-input" value="si">
+                        <label for="preg_28_1" class="form-check-label">Si</label>
+                    </div>
+                    <div class="form-check">
+                        <input formControlName="preg_28" type="radio" name="preg_28" id="preg_28_2" class="form-check-input" value="no">
+                        <label for="preg_28_2" class="form-check-label">No</label>
                     </div>
                 </div>
                 <div *ngIf="encuestaForm.controls.preg_28.errors && (encuestaForm.controls.preg_28.dirty || encuestaForm.controls.preg_28.touched)" class="alert alert-danger mt-1" role="alert">
                     Campo obligatorio
                 </div>
 
-                <div class="mt-3">
-                    <label for="q29" class="form-label">
-                        29. ¿Preferirías continuar tus estudios en modalidad virtual? <span class="text-danger">*</span>
-                    </label>
-                    <div class="form-check">
-                        <input formControlName="preg_29" type="radio" name="preg_29" id="preg_29_1" class="form-check-input" value="si">
-                        <label for="preg_29_1" class="form-check-label">Si</label>
-                    </div>
-                    <div class="form-check">
-                        <input formControlName="preg_29" type="radio" name="preg_29" id="preg_29_2" class="form-check-input" value="no">
-                        <label for="preg_29_2" class="form-check-label">No</label>
-                    </div>
-                </div>
-                <div *ngIf="encuestaForm.controls.preg_29.errors && (encuestaForm.controls.preg_29.dirty || encuestaForm.controls.preg_29.touched)" class="alert alert-danger mt-1" role="alert">
-                    Campo obligatorio
-                </div>
 
+                <!-- PREGUNTA 29 -->
                 <div class="mt-3">
-                    <label for="ctrEmail" class="form-label">30. Qué aspectos positivos y negativos destacarías de 
+                    <label for="ctrEmail" class="form-label">29. Qué aspectos positivos y negativos destacarías de 
                     tu trabajo on line durante el confinamiento.</label>
-                    <textarea formControlName="preg_30" class="form-control" id="ctrEmail" rows="3"></textarea>
+                    <textarea formControlName="preg_29" class="form-control" id="ctrEmail" rows="3"></textarea>
                 </div>
 
                 <div class="d-grid mt-5">

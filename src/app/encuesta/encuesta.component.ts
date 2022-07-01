@@ -23,10 +23,10 @@ export class EncuestaComponent implements OnInit {
   selectedPreg_13Names: string[] = [];
 
   // LISTAS DE VALORES PARA GENERAR CHECKS
-  preg_13Choices: Choice[] = [
+  preg_12Choices: Choice[] = [
     {
-      name: "Via correo electronico",
-      value: "Via correo electronico"
+      name: "Via correo electrónico",
+      value: "Via correo electrónico"
     },
     {
       name: "Plataformas como classroom, teams, etc",
@@ -42,7 +42,7 @@ export class EncuestaComponent implements OnInit {
     }
   ]
 
-  preg_15_16_17Choice: Choice[] = [
+  preg_14_15_16Choice: Choice[] = [
     {
       name: "Examen oral",
       value: "Examen oral"
@@ -61,7 +61,7 @@ export class EncuestaComponent implements OnInit {
     }
   ]
 
-  preg_18Choice: Choice[] = [
+  preg_17Choice: Choice[] = [
     {
       name: "Problemas de conexión",
       value: "Problemas de conexión"
@@ -88,7 +88,7 @@ export class EncuestaComponent implements OnInit {
     }
   ]
 
-  preg_28Choice: Choice[] = [
+  preg_27Choice: Choice[] = [
     {
       name: "Estudio",
       value: "Estudio"
@@ -114,8 +114,9 @@ export class EncuestaComponent implements OnInit {
 
 
   encuestaForm = new FormGroup({
-    preg_1: new FormControl(null, [Validators.required]),
-    preg_2: new FormControl({ value: '', disabled: true }, [Validators.required]),
+    preg_1_1: new FormControl(null, [Validators.required]),
+    preg_1_2: new FormControl({ value: '', disabled: true }, [Validators.required]),
+    preg_2: new FormControl(null, [Validators.required]),
     preg_3: new FormControl(null, [Validators.required]),
     preg_4: new FormControl(null, [Validators.required]),
     preg_5: new FormControl(null, [Validators.required]),
@@ -125,13 +126,13 @@ export class EncuestaComponent implements OnInit {
     preg_9: new FormControl(null, [Validators.required]),
     preg_10: new FormControl(null, [Validators.required]),
     preg_11: new FormControl(null, [Validators.required]),
-    preg_12: new FormControl(null, [Validators.required]),
-    preg_13: new FormArray([], [Validators.required, ValidateChecks]),
-    preg_14: new FormControl(null, [Validators.required]),
+    preg_12: new FormArray([], [Validators.required, ValidateChecks]),
+    preg_13: new FormControl(null, [Validators.required]),
+    preg_14: new FormArray([], [Validators.required, ValidateChecks]),
     preg_15: new FormArray([], [Validators.required, ValidateChecks]),
     preg_16: new FormArray([], [Validators.required, ValidateChecks]),
     preg_17: new FormArray([], [Validators.required, ValidateChecks]),
-    preg_18: new FormArray([], [Validators.required, ValidateChecks]),
+    preg_18: new FormControl(null, [Validators.required]),
     preg_19: new FormControl(null, [Validators.required]),
     preg_20: new FormControl(null, [Validators.required]),
     preg_21: new FormControl(null, [Validators.required]),
@@ -140,23 +141,25 @@ export class EncuestaComponent implements OnInit {
     preg_24: new FormControl(null, [Validators.required]),
     preg_25: new FormControl(null, [Validators.required]),
     preg_26: new FormControl(null, [Validators.required]),
-    preg_27: new FormControl(null, [Validators.required]),
-    preg_28: new FormArray([], [Validators.required, ValidateChecks]),
-    preg_29: new FormControl(null, [Validators.required]),
-    preg_30: new FormControl(null)
+    preg_27: new FormArray([], [Validators.required, ValidateChecks]),
+    preg_27_OTRO: new FormControl({value: null, disabled: true}, [Validators.required]),
+    preg_28: new FormControl(null, [Validators.required]),
+    preg_29: new FormControl(null)
   })
+
+  showOtroControl: boolean = false;
 
   constructor(
     private estadoMunicipioService: EstadosMunicipiosService,
     private router: Router,
     private respuestasService: RespuestasService
   ) {
-    this.addCheckBoxToForm(this.preg_13Choices, this.preg_13FormArray);
-    this.addCheckBoxToForm(this.preg_15_16_17Choice, this.preg_15FormArray);
-    this.addCheckBoxToForm(this.preg_15_16_17Choice, this.preg_16FormArray);
-    this.addCheckBoxToForm(this.preg_15_16_17Choice, this.preg_17FormArray);
-    this.addCheckBoxToForm(this.preg_18Choice, this.preg_18FormArray);
-    this.addCheckBoxToForm(this.preg_28Choice, this.preg_28FormArray);
+    this.addCheckBoxToForm(this.preg_12Choices, this.preg_12FormArray);
+    this.addCheckBoxToForm(this.preg_14_15_16Choice, this.preg_14FormArray);
+    this.addCheckBoxToForm(this.preg_14_15_16Choice, this.preg_15FormArray);
+    this.addCheckBoxToForm(this.preg_14_15_16Choice, this.preg_16FormArray);
+    this.addCheckBoxToForm(this.preg_17Choice, this.preg_17FormArray);
+    this.addCheckBoxToForm(this.preg_27Choice, this.preg_27FormArray);
 
   }
 
@@ -164,8 +167,12 @@ export class EncuestaComponent implements OnInit {
     this.lstEstados = this.estadoMunicipioService.getEstados();
   }
 
-  get preg_13FormArray() {
-    return this.encuestaForm.controls.preg_13 as unknown as FormArray;
+  get preg_12FormArray() {
+    return this.encuestaForm.controls.preg_12 as unknown as FormArray;
+  }
+
+  get preg_14FormArray() {
+    return this.encuestaForm.controls.preg_14 as unknown as FormArray;
   }
 
   get preg_15FormArray() {
@@ -180,12 +187,8 @@ export class EncuestaComponent implements OnInit {
     return this.encuestaForm.controls.preg_17 as unknown as FormArray;
   }
 
-  get preg_18FormArray() {
-    return this.encuestaForm.controls.preg_18 as unknown as FormArray;
-  }
-
-  get preg_28FormArray() {
-    return this.encuestaForm.controls.preg_28 as unknown as FormArray;
+  get preg_27FormArray() {
+    return this.encuestaForm.controls.preg_27 as unknown as FormArray;
   }
 
   addCheckBoxToForm(listChoice: Choice[], pregFormArray: FormArray): void {
@@ -193,25 +196,34 @@ export class EncuestaComponent implements OnInit {
   }
 
   cargarMunicipios(event: any): void {
-    this.lstMunicipios = this.estadoMunicipioService.getMunicipioByEstado(this.encuestaForm.get('preg_1')!.value!);
-    this.encuestaForm.controls['preg_2']?.enable();
+    this.lstMunicipios = this.estadoMunicipioService.getMunicipioByEstado(this.encuestaForm.get('preg_1_1')!.value!);
+    this.encuestaForm.controls['preg_1_2']?.enable();
   }
 
 
 
   enviarRespuestas(): void {
-    //this.validarFormulario();
+    console.log('FORM => ', this.encuestaForm.valid)
     if (this.validarFormulario()) {
-      const selectedPreg13 = this.encuestaForm.value.preg_13?.map((checked, i) => checked ? this.preg_13Choices[i].value : null).filter(v => v !== null);
-      const selectedPreg15 = this.encuestaForm.value.preg_15?.map((checked, i) => checked ? this.preg_15_16_17Choice[i].value : null).filter(v => v !== null);
-      const selectedPreg16 = this.encuestaForm.value.preg_16?.map((checked, i) => checked ? this.preg_15_16_17Choice[i].value : null).filter(v => v !== null);
-      const selectedPreg17 = this.encuestaForm.value.preg_17?.map((checked, i) => checked ? this.preg_15_16_17Choice[i].value : null).filter(v => v !== null);
-      const selectedPreg18 = this.encuestaForm.value.preg_18?.map((checked, i) => checked ? this.preg_18Choice[i].value : null).filter(v => v !== null);
-      const selectedPreg28 = this.encuestaForm.value.preg_28?.map((checked, i) => checked ? this.preg_28Choice[i].value : null).filter(v => v !== null);
+      const selectedPreg12 = this.encuestaForm.value.preg_12?.map((checked, i) => checked ? this.preg_12Choices[i].value : null).filter(v => v !== null);
+      const selectedPreg14 = this.encuestaForm.value.preg_14?.map((checked, i) => checked ? this.preg_14_15_16Choice[i].value : null).filter(v => v !== null);
+      const selectedPreg15 = this.encuestaForm.value.preg_15?.map((checked, i) => checked ? this.preg_14_15_16Choice[i].value : null).filter(v => v !== null);
+      const selectedPreg16 = this.encuestaForm.value.preg_16?.map((checked, i) => checked ? this.preg_14_15_16Choice[i].value : null).filter(v => v !== null);
+      const selectedPreg17 = this.encuestaForm.value.preg_17?.map((checked, i) => checked ? this.preg_17Choice[i].value : null).filter(v => v !== null);
+      const selectedPreg27 = this.encuestaForm.value.preg_27?.map((checked, i) => checked ? this.preg_27Choice[i].value : null).filter(v => v !== null);
+
+      if (this.encuestaForm.controls.preg_27_OTRO.enabled) {
+        selectedPreg27?.push(`Otros_${this.encuestaForm.controls.preg_27_OTRO.value}`)
+      }
+
+      let idx = selectedPreg27?.findIndex(x => x == "Otros")
+      if (idx != -1) {
+        selectedPreg27?.splice(idx as number,1)
+      }
 
       const body = {
         "respuestas": {
-          "1": this.encuestaForm.controls.preg_1.value,
+          "1": [this.encuestaForm.controls.preg_1_1.value, this.encuestaForm.controls.preg_1_2.value] ,
           "2": this.encuestaForm.controls.preg_2.value,
           "3": this.encuestaForm.controls.preg_3.value,
           "4": this.encuestaForm.controls.preg_4.value,
@@ -222,13 +234,13 @@ export class EncuestaComponent implements OnInit {
           "9": this.encuestaForm.controls.preg_9.value,
           "10": this.encuestaForm.controls.preg_10.value,
           "11": this.encuestaForm.controls.preg_11.value,
-          "12": this.encuestaForm.controls.preg_12.value,
-          "13": selectedPreg13,
-          "14": this.encuestaForm.controls.preg_9.value,
+          "12": selectedPreg12,
+          "13": this.encuestaForm.controls.preg_13.value,
+          "14": selectedPreg14,
           "15": selectedPreg15,
           "16": selectedPreg16,
           "17": selectedPreg17,
-          "18": selectedPreg18,
+          "18": this.encuestaForm.controls.preg_18.value,
           "19": this.encuestaForm.controls.preg_19.value,
           "20": this.encuestaForm.controls.preg_20.value,
           "21": this.encuestaForm.controls.preg_21.value,
@@ -237,13 +249,15 @@ export class EncuestaComponent implements OnInit {
           "24": this.encuestaForm.controls.preg_24.value,
           "25": this.encuestaForm.controls.preg_25.value,
           "26": this.encuestaForm.controls.preg_26.value,
-          "27": this.encuestaForm.controls.preg_27.value,
-          "28": selectedPreg28,
-          "29": this.encuestaForm.controls.preg_29.value,
-          "30": this.encuestaForm.controls.preg_30.value
+          "27": selectedPreg27,
+          "28": this.encuestaForm.controls.preg_28.value,
+          "29": this.encuestaForm.controls.preg_29.value
         }
       }
 
+      console.log('BODY => ', body)
+
+      //TODO: DESCOMENTAR CUANDO SE TENGA LISTO EL SERVDOR DESPLEGADO
       this.respuestasService.saveRespuestas(body).subscribe((res: any) => {
         if(res.status == 'done') {
           Swal.fire({
@@ -292,6 +306,16 @@ export class EncuestaComponent implements OnInit {
       isValid = false;
     }
     return isValid;
+  }
+
+  selectOtro(event: any) {
+    if (event.target.form[99].checked) {
+      this.encuestaForm.controls.preg_27_OTRO.enable()
+      this.showOtroControl = true;
+    } else {
+      this.encuestaForm.controls.preg_27_OTRO.disable()
+      this.showOtroControl = false;
+    }
   }
 
 }
