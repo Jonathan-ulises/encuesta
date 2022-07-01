@@ -213,7 +213,7 @@ export class EncuestaComponent implements OnInit {
       const selectedPreg27 = this.encuestaForm.value.preg_27?.map((checked, i) => checked ? this.preg_27Choice[i].value : null).filter(v => v !== null);
 
       if (this.encuestaForm.controls.preg_27_OTRO.enabled) {
-        selectedPreg27?.push(this.encuestaForm.controls.preg_27_OTRO.value)
+        selectedPreg27?.push(`Otros_${this.encuestaForm.controls.preg_27_OTRO.value}`)
       }
 
       let idx = selectedPreg27?.findIndex(x => x == "Otros")
